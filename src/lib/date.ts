@@ -37,7 +37,7 @@ const formatDistance = (token: string, count: number, options: any = {}) => {
   return result;
 };
 
-const formatTimeToNow = (date: Date) =>
+export const formatTimeToNow = (date: Date) =>
   formatDistanceToNowStrict(date, {
     addSuffix: true,
     locale: {
