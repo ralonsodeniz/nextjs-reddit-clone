@@ -1,5 +1,7 @@
 import { Inter } from 'next/font/google';
-import type { ReactNode } from 'react';
+import { type ReactNode } from 'react';
+import { cn } from '@/lib';
+import Navbar from '@/components/layout/Navbar';
 
 import '@/styles/globals.css';
 
@@ -12,8 +14,18 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={cn('bg-white text-slate-900 antialiased')}>
+      <body
+        className={cn(
+          'min-h-screen pt-12 bg-slate-50 antialiased',
+          inter.className,
+        )}
+      >
+        <Navbar />
+        <main className={cn('container max-w-7xl h-full pt-12')}>
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
