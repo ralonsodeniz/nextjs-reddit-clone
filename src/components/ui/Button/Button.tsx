@@ -3,8 +3,8 @@ import { Slot } from '@radix-ui/react-slot';
 import { type VariantProps } from 'class-variance-authority';
 import { Loader2 } from 'lucide-react';
 
-import { cn } from '@/lib';
-import { buttonVariants } from '@/components/ui/Button/styles';
+import { cn } from '@/lib/classnames';
+import { buttonVariants, classname } from '@/components/ui/Button/styles';
 
 export interface IButton
   extends ButtonHTMLAttributes<HTMLButtonElement>,
@@ -35,7 +35,7 @@ const Button = forwardRef<HTMLButtonElement, IButton>(
         disabled={isLoading || disabled}
         {...props}
       >
-        {isLoading && <Loader2 className="mr-2 h-4 animate-spin" />}
+        {isLoading && <Loader2 className={cn(classname.loading)} />}
         {children}
       </Comp>
     );

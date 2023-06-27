@@ -1,8 +1,9 @@
 import { Inter } from 'next/font/google';
 import { type ReactNode } from 'react';
 
-import { cn } from '@/lib';
+import { cn } from '@/lib/classnames';
 import Navbar from '@/components/layout/Navbar';
+import Toaster from '@/components/ui/Toast';
 
 import '@/styles/globals.css';
 
@@ -29,6 +30,7 @@ const RootLayout = ({ children }: IRootLayout) => {
       <body className={cn(classname.body)}>
         <Navbar />
         <main className={cn(classname.main)}>{children}</main>
+        <Toaster />
       </body>
     </html>
   );

@@ -27,3 +27,7 @@ export const buttonVariants = cva(
     },
   },
 );
+
+export const classname = {
+  loading: 'animate-spin mr-2 h-4 w-4',
+};
