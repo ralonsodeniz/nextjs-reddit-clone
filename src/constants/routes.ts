@@ -1,10 +1,15 @@
 export const ROUTES = {
   home: {
     href: '/',
-    text: 'Next-it',
   },
   signIn: {
     href: '/sign-in',
-    text: 'Sign In',
   },
+  signUp: {
+    href: '/sign-up',
+  },
+};
+
+export const IMAGES_ROUTES = {
+  logo: '/logo.png',
 };

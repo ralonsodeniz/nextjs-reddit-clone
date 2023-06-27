@@ -1,9 +1,5 @@
-import Button from '@/components/ui/Button';
+import { EN } from '@/locale/en';
 
-export default function Home() {
-  return (
-    <main>
-      <Button>Hello</Button>
-    </main>
-  );
-}
+const HomePage = () => <>{EN.routes.home}</>;
+
+export default HomePage;

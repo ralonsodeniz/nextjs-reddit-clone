@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google';
 import { type ReactNode } from 'react';
+
 import { cn } from '@/lib';
 import Navbar from '@/components/layout/Navbar';
 
@@ -12,20 +13,25 @@ export const metadata = {
   description: 'NextJS reddit clone',
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+interface IRootLayout {
+  children: ReactNode;
+}
+
+const classname = {
+  html: 'bg-white text-slate-900 antialiased',
+  body: ['min-h-screen pt-12 bg-slate-50 antialiased', inter.className],
+  main: 'container max-w-7xl h-full pt-12',
+};
+
+const RootLayout = ({ children }: IRootLayout) => {
   return (
-    <html lang="en" className={cn('bg-white text-slate-900 antialiased')}>
-      <body
-        className={cn(
-          'min-h-screen pt-12 bg-slate-50 antialiased',
-          inter.className,
-        )}
-      >
+    <html lang="en" className={cn(classname.html)}>
+      <body className={cn(classname.body)}>
         <Navbar />
-        <main className={cn('container max-w-7xl h-full pt-12')}>
-          {children}
-        </main>
+        <main className={cn(classname.main)}>{children}</main>
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
