@@ -3,8 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { IMAGES_ROUTES, ROUTES } from '@/constants/routes';
-import { buttonVariants } from '@/components/ui/Button';
+import { buttonVariants } from '@/components/ui/Button/styles';
 import { EN } from '@/locale/en';
+import { getAuthSession } from '@/lib/auth';
+import UserMenu from "@/components/layout/Navbar/components/UserMenu";
 
 const classname = {
   header:
@@ -16,7 +18,9 @@ const classname = {
   hiddenText: 'hidden text-zinc-700 text-sm font-medium sm:block',
 };
 
-const Navbar = () => {
+const Index = async () => {
+  const session = await getAuthSession();
+
   return (
     <header className={cn(classname.header)}>
       <div className={cn(classname.container)}>
@@ -32,11 +36,13 @@ const Navbar = () => {
           </div>
           <span className={cn(classname.hiddenText)}>{EN.navBar.title}</span>
         </Link>
-        <Link href={ROUTES.signIn.href} className={cn(buttonVariants())}>
-          {EN.routes.signIn}
-        </Link>
+        {!session?.user ? (
+          <Link href={ROUTES.signIn.href} className={cn(buttonVariants())}>
+            {EN.routes.signIn}
+          </Link>
+        ): <UserMenu user={session.user} />}
       </div>
     </header>
   );
 };
-export default Navbar;
+export default Index;

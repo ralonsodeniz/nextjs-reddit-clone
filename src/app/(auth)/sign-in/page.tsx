@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { cn } from '@/lib/classnames';
 import { ROUTES } from '@/constants/routes';
-import { buttonVariants } from '@/components/ui/Button';
+import { buttonVariants } from '@/components/ui/Button/styles';
 import { EN } from '@/locale/en';
 import SignIn from '@/components/module/SignIn';
 

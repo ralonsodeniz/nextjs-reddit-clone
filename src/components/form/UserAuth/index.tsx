@@ -7,7 +7,7 @@ import { signIn } from 'next-auth/react';
 import { cn } from '@/lib/classnames';
 import Button from '@/components/ui/Button';
 import { EN } from '@/locale/en';
-import { useToast } from '@/components/ui/Toast';
+import { useToast } from '@/components/ui/Toast/hooks/use-toast';
 
 const classname = {
   container: 'flex justify-center',

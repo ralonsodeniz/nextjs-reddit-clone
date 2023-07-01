@@ -7,6 +7,9 @@ export const EN = {
     signIn: 'Sign In',
     signUp: 'Sign Up',
   },
+  home: {
+    welcome: (name: string) => `${name}, Welcome to Koolala!`,
+  },
   signIn: {
     header: 'Welcome back to Koolala',
     licence:
@@ -21,5 +24,9 @@ export const EN = {
         title: 'There was a problem',
       },
     },
+  },
+  common: {
+    userName: 'Mememan',
+    avatarAlt: 'user profile picture',
   },
 };
