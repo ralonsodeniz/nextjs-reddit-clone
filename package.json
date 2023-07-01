@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "db:generate": "npx prisma generate",
-    "db:migrate": "npx prisma migrate",
+    "db:migrate": "npx prisma migrate dev",
+    "db:push": "npx prisma db push",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

@@ -20,8 +20,8 @@ interface IRootLayout {
 
 const classname = {
   html: 'bg-white text-slate-900 antialiased',
-  body: ['min-h-screen pt-12 bg-slate-50 antialiased', inter.className],
-  main: 'container max-w-7xl h-full pt-12',
+  body: ['min-h-screen bg-slate-50 antialiased flex flex-col', inter.className],
+  main: 'container max-w-7xl h-full pt-12 relative flex-1',
 };
 
 const RootLayout = ({ children }: IRootLayout) => {
