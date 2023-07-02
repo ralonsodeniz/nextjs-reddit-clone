@@ -1,11 +1,19 @@
 export const EN = {
   navBar: {
     title: 'Koolala',
+    userMenu: {
+      labels: {
+        navigation: 'Go to...',
+      },
+      signOut: 'Sign Out',
+    },
   },
   routes: {
     home: 'Home',
     signIn: 'Sign In',
     signUp: 'Sign Up',
+    create: 'Create new Koolala',
+    profile: 'Profile',
   },
   home: {
     welcome: (name: string) => `${name}, Welcome to Koolala!`,

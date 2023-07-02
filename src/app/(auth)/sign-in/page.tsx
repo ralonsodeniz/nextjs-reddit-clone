@@ -17,9 +17,6 @@ const SignInPage = () => {
   return (
     <section className={cn(classname.container)}>
       <div className={cn(classname.content)}>
-        <Link href={ROUTES.home.href} className={cn(classname.link)}>
-          {EN.routes.home}
-        </Link>
         <SignIn />
       </div>
     </section>

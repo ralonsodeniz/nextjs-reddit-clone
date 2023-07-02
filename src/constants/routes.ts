@@ -8,6 +8,12 @@ export const ROUTES = {
   signUp: {
     href: '/sign-up',
   },
+  create: {
+    href: '/k/create',
+  },
+  profile: {
+    href: '/profile',
+  },
 };
 
 export const IMAGES_ROUTES = {
