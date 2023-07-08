@@ -17,6 +17,7 @@ export const EN = {
   },
   home: {
     welcome: (name: string) => `${name}, Welcome to Koolala!`,
+    notSignedIn: 'Please sign in or create an account to continue',
   },
   signIn: {
     header: 'Welcome back to Koolala',
@@ -36,5 +37,6 @@ export const EN = {
   common: {
     userName: 'Mememan',
     avatarAlt: 'user profile picture',
+    logoAlt: 'Koolala logo',
   },
 };

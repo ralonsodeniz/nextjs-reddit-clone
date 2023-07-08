@@ -21,7 +21,7 @@ const SignIn = () => (
   <section className={cn(classname.container)}>
     <div className={cn(classname.signInContent)}>
       <Image
-        alt="logo"
+        alt={EN.common.logoAlt}
         src={IMAGES_ROUTES.logo}
         className={cn(classname.image)}
         width={24}

@@ -4,7 +4,13 @@ import { getAuthSession } from '@/lib/auth';
 const HomePage = async () => {
   const session = await getAuthSession();
 
-  return <>{EN.home.welcome(session?.user.name ?? EN.common.userName)}</>;
+  return (
+    <>
+      {session
+        ? EN.home.welcome(session?.user.name ?? EN.common.userName)
+        : EN.home.notSignedIn}
+    </>
+  );
 };
 
 export default HomePage;

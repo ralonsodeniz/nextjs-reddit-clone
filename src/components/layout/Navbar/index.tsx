@@ -3,10 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { IMAGES_ROUTES, ROUTES } from '@/constants/routes';
-import { buttonVariants } from '@/components/ui/Button/styles';
 import { EN } from '@/locale/en';
 import { getAuthSession } from '@/lib/auth';
-import UserMenu from "@/components/layout/Navbar/components/UserMenu";
+import UserMenu from '@/components/layout/Navbar/components/UserMenu';
+import SignInLink from '@/components/layout/Navbar/components/SignInLink';
 
 const classname = {
   header:
@@ -16,6 +16,7 @@ const classname = {
   logoLink: 'flex gap-2 items-center',
   logoWrapper: 'relative h-12 w-12 sm:h-10 sm:w-10',
   hiddenText: 'hidden text-zinc-700 text-sm font-medium sm:block',
+  signInLink: 'disabled:opacity-50 disabled:pointer-events-none',
 };
 
 const Index = async () => {
@@ -30,17 +31,13 @@ const Index = async () => {
               className={cn('object-contain')}
               src={IMAGES_ROUTES.logo}
               fill
-              alt="nextlogo"
+              alt={EN.common.logoAlt}
               sizes="(min-width: 640) 2.5rem, 3rem"
             />
           </div>
           <span className={cn(classname.hiddenText)}>{EN.navBar.title}</span>
         </Link>
-        {!session?.user ? (
-          <Link href={ROUTES.signIn.href} className={cn(buttonVariants())}>
-            {EN.routes.signIn}
-          </Link>
-        ): <UserMenu user={session.user} />}
+        {!session?.user ? <SignInLink /> : <UserMenu user={session.user} />}
       </div>
     </header>
   );
