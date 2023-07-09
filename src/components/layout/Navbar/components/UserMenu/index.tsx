@@ -36,7 +36,6 @@ const UserMenu = ({ user }: IUserMenu) => {
   const handleSignOut = async () => {
     await signOut({ redirect: false });
     router.refresh();
-    router.push(ROUTES.signIn.href);
   };
 
   return (

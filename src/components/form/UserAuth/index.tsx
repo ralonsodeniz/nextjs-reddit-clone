@@ -10,8 +10,6 @@ import { EN } from '@/locale/en';
 import { useToast } from '@/components/ui/Toast/hooks/use-toast';
 
 const classname = {
-  container: 'flex justify-center',
-  button: 'w-full',
   mailIcon: 'w-4 h-4 mr-2',
 };
 
@@ -35,17 +33,10 @@ export const UserAuth = () => {
   };
 
   return (
-    <section className={cn(classname.container)}>
-      <Button
-        className={cn(classname.button)}
-        size="sm"
-        isLoading={isLoading}
-        onClick={onSignIn}
-      >
-        {!isLoading && <Mail className={cn(classname.mailIcon)} />}
-        {EN.form.signIn.google}
-      </Button>
-    </section>
+    <Button size="sm" isLoading={isLoading} onClick={onSignIn}>
+      {!isLoading && <Mail className={cn(classname.mailIcon)} />}
+      {EN.form.signIn.google}
+    </Button>
   );
 };
 
