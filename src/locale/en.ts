@@ -20,10 +20,9 @@ export const EN = {
     notSignedIn: 'Please sign in or create an account to continue',
   },
   signIn: {
-    header: 'Welcome back to Koolala',
+    header: 'Welcome to Koolala',
     licence:
       'By continuing you agree to our Terms of Service and Privacy Policy',
-    new: 'New to Koolala?',
   },
   form: {
     signIn: {

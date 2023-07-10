@@ -4,7 +4,7 @@ import SignIn from '@/components/module/SignIn';
 
 const classname = {
   container:
-    'flex flex-col justify-center space-y-2 text-center sm:w-[400px] m-auto',
+    'flex flex-col justify-center space-y-2 gap-4 text-center sm:w-[400px] m-auto',
   link: [buttonVariants({ variant: 'ghost' }), 'self-start', '-mt-20'],
 };
 

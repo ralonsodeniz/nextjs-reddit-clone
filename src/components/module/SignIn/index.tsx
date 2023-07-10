@@ -26,12 +26,6 @@ const SignIn = () => (
     <h1 className={cn(classname.header)}>{EN.signIn.header}</h1>
     <p className={cn(classname.licence)}>{EN.signIn.licence}</p>
     <UserAuth />
-    <p className={cn(classname.singUp)}>
-      {EN.signIn.new}{' '}
-      <Link className={cn(classname.link)} href={ROUTES.signUp.href}>
-        {EN.routes.signUp}
-      </Link>
-    </p>
   </>
 );
 
