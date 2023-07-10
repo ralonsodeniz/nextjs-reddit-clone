@@ -17,7 +17,11 @@ export const EN = {
   },
   home: {
     welcome: (name: string) => `${name}, Welcome to Koolala!`,
-    notSignedIn: 'Please sign in or create an account to continue',
+    notSignedIn: 'Please sign in to see your feed',
+    communityInfo: {
+      home: 'Home',
+      lead: 'Your personal Koolala page. Check your favourite communities here.',
+    },
   },
   signIn: {
     header: 'Welcome to Koolala',
