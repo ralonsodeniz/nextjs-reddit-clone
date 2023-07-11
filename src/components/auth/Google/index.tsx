@@ -13,7 +13,7 @@ const classname = {
   mailIcon: 'w-4 h-4 mr-2',
 };
 
-export const UserAuth = () => {
+export const GoogleAuth = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
@@ -23,8 +23,8 @@ export const UserAuth = () => {
       await signIn('google', { callbackUrl: '/' });
     } catch (error) {
       toast({
-        title: EN.form.signIn.error.title,
-        description: EN.form.signIn.error.description,
+        title: EN.auth.error.title,
+        description: EN.auth.error.description,
         variant: 'destructive',
       });
     } finally {
@@ -35,9 +35,9 @@ export const UserAuth = () => {
   return (
     <Button size="sm" isLoading={isLoading} onClick={onSignIn}>
       {!isLoading && <Mail className={cn(classname.mailIcon)} />}
-      {EN.form.signIn.google}
+      {EN.auth.google}
     </Button>
   );
 };
 
-export default UserAuth;
+export default GoogleAuth;

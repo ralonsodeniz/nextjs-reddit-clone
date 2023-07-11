@@ -28,13 +28,22 @@ export const EN = {
     licence:
       'By continuing you agree to our Terms of Service and Privacy Policy',
   },
-  form: {
-    signIn: {
-      google: 'Sign in with Google',
-      error: {
-        description: 'There was an error while signing in with Google',
-        title: 'There was a problem',
+  create: {
+    title: 'Create a community',
+    form: {
+      name: {
+        title: 'Name',
+        description: 'The name of your community',
+        prefix: 'k/',
       },
+      button: 'Create',
+    },
+  },
+  auth: {
+    google: 'Sign in with Google',
+    error: {
+      description: 'There was an error while signing in with Google',
+      title: 'There was a problem',
     },
   },
   common: {
