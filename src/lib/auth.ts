@@ -1,11 +1,13 @@
-import { getServerSession, type NextAuthOptions } from 'next-auth';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import { nanoid } from 'nanoid';
+import { getServerSession } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
-import { db } from '@/lib/db';
-import { nanoid } from 'nanoid';
 import { ROUTES } from '@/constants/routes';
 import { serverEnv as env } from '@/env/index.mjs';
+import { db } from '@/lib/db';
+
+import type { NextAuthOptions } from 'next-auth';
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db),

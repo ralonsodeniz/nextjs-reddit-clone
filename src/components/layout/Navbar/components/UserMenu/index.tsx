@@ -1,9 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { signOut } from 'next-auth/react';
-import type { User } from 'next-auth';
 
+import { navigationLinks } from '@/components/layout/Navbar/components/UserMenu/constants';
+import UserAvatar from '@/components/module/UserAvatar';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,22 +15,20 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/DropdownMenu';
-import UserAvatar from '@/components/module/UserAvatar';
 import { cn } from '@/lib/classnames';
-import { navigationLinks } from '@/components/layout/Navbar/components/UserMenu/constants';
 import { EN } from '@/locale/en';
-import { ROUTES } from '@/constants/routes';
-import { useRouter } from 'next/navigation';
+
+import type { User } from 'next-auth';
 
 interface IUserMenu {
   user: Pick<User, 'name' | 'image' | 'email'>;
 }
 
 const classname = {
-  name: 'font-bold',
-  email: 'w-[200px] truncate text-sm text-zinc-700',
-  link: 'w-full',
-  signOut: 'font-semibold cursor-pointer text-sm text-zinc-700',
+  name: cn('font-bold'),
+  email: cn('w-[200px]  truncate text-sm text-zinc-700'),
+  link: cn('w-full'),
+  signOut: cn('cursor-pointer text-sm font-semibold text-zinc-700'),
 };
 
 const UserMenu = ({ user }: IUserMenu) => {
@@ -46,12 +46,12 @@ const UserMenu = ({ user }: IUserMenu) => {
       <DropdownMenuContent>
         <DropdownMenuGroup>
           {user.name && (
-            <DropdownMenuLabel className={cn(classname.name)}>
+            <DropdownMenuLabel className={classname.name}>
               {user.name}
             </DropdownMenuLabel>
           )}
           {user.email && (
-            <DropdownMenuLabel className={cn(classname.email)}>
+            <DropdownMenuLabel className={classname.email}>
               {user.email}
             </DropdownMenuLabel>
           )}
@@ -63,17 +63,14 @@ const UserMenu = ({ user }: IUserMenu) => {
           </DropdownMenuLabel>
           {navigationLinks.map(link => (
             <DropdownMenuItem key={link.href}>
-              <Link className={cn(classname.link)} href={link.href}>
+              <Link className={classname.link} href={link.href}>
                 {link.label}
               </Link>
             </DropdownMenuItem>
           ))}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem
-          className={cn(classname.signOut)}
-          onClick={handleSignOut}
-        >
+        <DropdownMenuItem className={classname.signOut} onClick={handleSignOut}>
           {EN.navBar.userMenu.signOut}
         </DropdownMenuItem>
       </DropdownMenuContent>

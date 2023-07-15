@@ -1,10 +1,12 @@
-import { type ButtonHTMLAttributes, forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { Slot } from '@radix-ui/react-slot';
-import { type VariantProps } from 'class-variance-authority';
 import { Loader2 } from 'lucide-react';
 
-import { cn } from '@/lib/classnames';
 import { buttonVariants, classname } from '@/components/ui/Button/styles';
+import { cn } from '@/lib/classnames';
+
+import type { VariantProps } from 'class-variance-authority';
+import type { ButtonHTMLAttributes } from 'react';
 
 export interface IButton
   extends ButtonHTMLAttributes<HTMLButtonElement>,

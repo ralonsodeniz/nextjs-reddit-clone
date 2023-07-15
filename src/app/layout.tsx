@@ -1,11 +1,12 @@
 import { Inter } from 'next/font/google';
-import { type ReactNode } from 'react';
 
-import { cn } from '@/lib/classnames';
 import Navbar from '@/components/layout/Navbar';
 import Toaster from '@/components/ui/Toast';
+import { cn } from '@/lib/classnames';
 
-import '@/styles/globals.css';
+import type { ReactNode } from 'react';
+
+import '../styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,19 +21,21 @@ interface IRootLayout {
 }
 
 const classname = {
-  html: 'bg-white text-slate-900 antialiased',
-  body: ['min-h-screen bg-slate-50 antialiased flex flex-col', inter.className],
-  main: 'container max-w-7xl h-full pt-20 flex-1',
+  html: cn('bg-white text-slate-900 antialiased'),
+  body: cn([
+    'flex min-h-screen flex-col bg-slate-50 antialiased',
+    inter.className,
+  ]),
+  main: cn('container h-full max-w-7xl flex-1 pt-20'),
 };
 
 const RootLayout = ({ children, authModal }: IRootLayout) => {
-
   return (
-    <html lang="en" className={cn(classname.html)}>
-      <body className={cn(classname.body)}>
+    <html lang="en" className={classname.html}>
+      <body className={classname.body}>
         <Navbar />
         {authModal}
-        <main className={cn(classname.main)}>{children}</main>
+        <main className={classname.main}>{children}</main>
         <Toaster />
       </body>
     </html>

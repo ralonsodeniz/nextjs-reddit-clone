@@ -1,16 +1,17 @@
-import { cn } from '@/lib/classnames';
-import { buttonVariants } from '@/components/ui/Button/styles';
 import SignIn from '@/components/module/SignIn';
+import { buttonVariants } from '@/components/ui/Button/styles';
+import { cn } from '@/lib/classnames';
 
 const classname = {
-  container:
-    'flex flex-col justify-center space-y-2 gap-4 text-center sm:w-[400px] m-auto',
-  link: [buttonVariants({ variant: 'ghost' }), 'self-start', '-mt-20'],
+  container: cn(
+    'm-auto flex flex-col justify-center gap-4 space-y-2 text-center sm:w-[400px]',
+  ),
+  link: cn([buttonVariants({ variant: 'ghost' }), '-mt-20 self-start']),
 };
 
 const SignInPage = () => {
   return (
-    <section className={cn(classname.container)}>
+    <section className={classname.container}>
       <SignIn />
     </section>
   );

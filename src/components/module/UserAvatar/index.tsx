@@ -1,9 +1,10 @@
-import { User } from 'next-auth';
 import Image from 'next/image';
-import { type AvatarProps } from '@radix-ui/react-avatar';
 
 import { Avatar, AvatarFallback } from '@/components/ui/Avatar';
 import { EN } from '@/locale/en';
+
+import type { AvatarProps } from '@radix-ui/react-avatar';
+import type { User } from 'next-auth';
 
 interface IUserAvatar extends AvatarProps {
   user: Pick<User, 'name' | 'image'>;

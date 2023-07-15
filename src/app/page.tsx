@@ -1,21 +1,26 @@
 import Link from 'next/link';
-
-import { EN } from '@/locale/en';
-import { getAuthSession } from '@/lib/auth';
-import { cn } from '@/lib/classnames';
 import { HomeIcon } from 'lucide-react';
+
 import { buttonVariants } from '@/components/ui/Button/styles';
 import { ROUTES } from '@/constants/routes';
+import { getAuthSession } from '@/lib/auth';
+import { cn } from '@/lib/classnames';
+import { EN } from '@/locale/en';
 
 const classname = {
-  title: 'font-bold text-3xl md:text-4xl',
-  grid: 'grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 py-6',
-  info: 'overflow-hidden h-fit rounded-lg border border-gray-200 order-first md:order-last',
-  infoText: 'font-semibold px-6 py-7 flex items-center gap-1.5 bg-gray-300',
-  homeIcon: 'w-4 h-4',
-  leadText:
-    '-my-3 divide-y divide-gray-100 px-6 py-7 text-sm leading-6 flex justify-between gap-x-4 text-zinc-500',
-  createLink: buttonVariants({ className: 'mt-4 mb-6 mx-7 w-[calc(100%-3.5rem)] cursor-pointer' }),
+  title: cn('text-3xl font-bold md:text-4xl'),
+  grid: cn('grid grid-cols-1 gap-y-4 py-6 md:grid-cols-3 md:gap-x-4'),
+  info: cn(
+    'order-first h-fit overflow-hidden rounded-lg border border-gray-200 md:order-last',
+  ),
+  infoText: cn('flex items-center gap-1.5 bg-gray-300 px-6 py-7 font-semibold'),
+  homeIcon: cn('h-4 w-4'),
+  leadText: cn(
+    '-my-3 flex justify-between gap-x-4 divide-y divide-gray-100 px-6 py-7 text-sm leading-6 text-zinc-500',
+  ),
+  createLink: buttonVariants({
+    className: cn('mx-7 mb-6 mt-4 w-[calc(100%-3.5rem)] cursor-pointer'),
+  }),
 };
 
 const HomePage = async () => {
@@ -26,15 +31,15 @@ const HomePage = async () => {
 
   return (
     <>
-      <h1 className={cn(classname.title)}>{title}</h1>
-      <section className={cn(classname.grid)}>
-        <article className={cn(classname.info)}>
-          <p className={cn(classname.infoText)}>
-            <HomeIcon className={cn(classname.homeIcon)} />
+      <h1 className={classname.title}>{title}</h1>
+      <section className={classname.grid}>
+        <article className={classname.info}>
+          <p className={classname.infoText}>
+            <HomeIcon className={classname.homeIcon} />
             {EN.home.communityInfo.home}
           </p>
-          <p className={cn(classname.leadText)}>{EN.home.communityInfo.lead}</p>
-          <Link href={ROUTES.create.href} className={cn(classname.createLink)}>
+          <p className={classname.leadText}>{EN.home.communityInfo.lead}</p>
+          <Link href={ROUTES.create.href} className={classname.createLink}>
             {EN.routes.create}
           </Link>
         </article>

@@ -1,11 +1,13 @@
 'use client';
+
 // Inspired by react-hot-toast library
-import { type ReactNode, useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import type {
   ToastActionElement,
   ToastProps,
 } from '@/components/ui/Toast/Toast';
+import type { ReactNode } from 'react';
 
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 1000000;

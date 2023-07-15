@@ -5,7 +5,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
+import { createCommunity } from '@/components/forms/Create/actions';
 import { schema } from '@/components/forms/Create/schema';
+import Button from '@/components/ui/Button';
 import {
   Form,
   FormControl,
@@ -14,21 +16,20 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/Form';
-import Button from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
-import { EN } from '@/locale/en';
 import { cn } from '@/lib/classnames';
-import { createCommunity } from '@/components/forms/Create/actions';
+import { EN } from '@/locale/en';
 
 const classname = {
-  label: 'text-xl font-medium',
+  label: cn('text-xl font-medium'),
   description: (error: boolean) =>
-    cn('text-xs pb-2', !error && 'text-zinc-400'),
-  nameWrapper: 'relative',
-  namePrefix:
-    'absolute text-sm left-0 w-8 inset-y-0 grid place-items-center text-zinc-400',
-  nameInput: 'pl-7 text-sm',
-  button: 'mt-4',
+    cn('pb-2 text-xs', !error && 'text-zinc-400'),
+  nameWrapper: cn('relative'),
+  namePrefix: cn(
+    'absolute inset-y-0 left-0 grid w-8 place-items-center text-sm text-zinc-400',
+  ),
+  nameInput: cn('pl-7 text-sm'),
+  button: cn('mt-4'),
 };
 
 const CreateForm = () => {
@@ -51,34 +52,30 @@ const CreateForm = () => {
         <FormField
           render={({ field, fieldState }) => (
             <FormItem>
-              <FormLabel className={cn(classname.label)}>
+              <FormLabel className={classname.label}>
                 {EN.create.form.name.title}
               </FormLabel>
               <FormMessage
-                className={cn(classname.description(!!fieldState.error))}
+                className={classname.description(!!fieldState.error)}
               >
                 {EN.create.form.name.description}
               </FormMessage>
-              <div className={cn(classname.nameWrapper)}>
+              <div className={classname.nameWrapper}>
                 <FormControl>
                   <Input
-                    className={cn(classname.nameInput)}
+                    className={classname.nameInput}
                     placeholder="Community name"
                     {...field}
                   />
                 </FormControl>
-                <p className={cn(classname.namePrefix)}>k/</p>
+                <p className={classname.namePrefix}>k/</p>
               </div>
             </FormItem>
           )}
           name="name"
           control={form.control}
         />
-        <Button
-          className={cn(classname.button)}
-          type="submit"
-          disabled={isPending}
-        >
+        <Button className={classname.button} type="submit" disabled={isPending}>
           {EN.create.form.button}
         </Button>
       </form>

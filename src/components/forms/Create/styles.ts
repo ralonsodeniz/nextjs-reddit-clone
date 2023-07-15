@@ -1,12 +1,13 @@
 import { cn } from '@/lib/classnames';
 
 export const classname = {
-  label: 'text-xl font-medium',
-  description: (error: boolean) => cn('text-xs pb-2', !error && 'pb-8'),
-  message: 'text-xs pb-2 text-destructive',
-  nameWrapper: 'relative',
-  namePrefix:
-    'absolute text-sm left-0 w-8 inset-y-0 grid place-items-center text-zinc-400',
-  nameInput: 'pl-7 text-sm',
-  button: 'mt-4',
+  label: cn('text-xl font-medium'),
+  description: (error: boolean) => cn('pb-2 text-xs', !error && 'pb-8'),
+  message: cn('pb-2 text-xs text-destructive'),
+  nameWrapper: cn('relative'),
+  namePrefix: cn(
+    'absolute inset-y-0 left-0 grid w-8 place-items-center text-sm text-zinc-400',
+  ),
+  nameInput: cn('pl-7 text-sm'),
+  button: cn('mt-4'),
 };

@@ -1,18 +1,17 @@
 'use server';
 
-import { ZodIssue } from 'zod';
 import { revalidatePath } from 'next/cache';
 
 import { schema } from '@/components/forms/Create/schema';
-import { ROUTES } from '@/constants/routes';
 import { errors } from '@/components/forms/Create/ServerActionForm';
+import { ROUTES } from '@/constants/routes';
 
 const serverSideValidation = async (data: FormData) => {
   const dataObject = Object.fromEntries(data.entries());
   const parsedData = schema.safeParse(dataObject);
   errors.clear();
   if (!parsedData.success) {
-    parsedData.error.errors.forEach((error: ZodIssue) => {
+    parsedData.error.errors.forEach(error => {
       errors.set(error.path.join(''), error.message);
     });
   }

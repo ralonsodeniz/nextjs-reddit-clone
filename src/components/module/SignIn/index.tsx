@@ -1,16 +1,15 @@
 import Image from 'next/image';
 
-import { cn } from '@/lib/classnames';
 import { IMAGES_ROUTES, ROUTES } from '@/constants/routes';
+import { cn } from '@/lib/classnames';
 import { EN } from '@/locale/en';
+
 import GoogleAuth from '../../auth/Google';
 
 const classname = {
-  image: 'mx-auto',
-  header: 'text-2xl font-semibold tracking-tight',
-  licence: 'text-sm max-w-xs mx-auto',
-  singUp: 'px-8 text-center text-sm text-zinc-700',
-  link: 'hover:text-zinc-800 text-sm underline underline-offset-4',
+  image: cn('mx-auto'),
+  header: cn('text-2xl font-semibold tracking-tight'),
+  licence: cn('mx-auto max-w-xs text-sm'),
 };
 
 const SignIn = () => (
@@ -18,12 +17,12 @@ const SignIn = () => (
     <Image
       alt={EN.common.logoAlt}
       src={IMAGES_ROUTES.logo}
-      className={cn(classname.image)}
+      className={classname.image}
       width={24}
       height={24}
     />
-    <h1 className={cn(classname.header)}>{EN.signIn.header}</h1>
-    <p className={cn(classname.licence)}>{EN.signIn.licence}</p>
+    <h1 className={classname.header}>{EN.signIn.header}</h1>
+    <p className={classname.licence}>{EN.signIn.licence}</p>
     <GoogleAuth />
   </>
 );

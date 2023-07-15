@@ -3,13 +3,14 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import { buttonVariants } from '@/components/ui/Button/styles';
 import { ROUTES } from '@/constants/routes';
 import { cn } from '@/lib/classnames';
-import { buttonVariants } from '@/components/ui/Button/styles';
 import { EN } from '@/locale/en';
 
 const classname = {
-  disabled: 'opacity-50 pointer-events-none',
+  link: (disabled: boolean) =>
+    cn(buttonVariants(), disabled && 'pointer-events-none opacity-50'),
 };
 
 const SignInLink = () => {
@@ -17,10 +18,7 @@ const SignInLink = () => {
   const disabled = pathname === ROUTES.signIn.href;
 
   return (
-    <Link
-      href={ROUTES.signIn.href}
-      className={cn(buttonVariants(), disabled && classname.disabled)}
-    >
+    <Link href={ROUTES.signIn.href} className={classname.link(disabled)}>
       {EN.routes.signIn}
     </Link>
   );
