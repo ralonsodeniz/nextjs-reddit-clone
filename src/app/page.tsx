@@ -13,10 +13,12 @@ const classname = {
   info: cn(
     'order-first h-fit overflow-hidden rounded-lg border border-gray-200 md:order-last',
   ),
-  infoText: cn('flex items-center gap-1.5 bg-gray-300 px-6 py-7 font-semibold'),
+  infoText: cn(
+    'flex items-center gap-1.5 bg-foreground px-6 py-7 font-semibold text-background',
+  ),
   homeIcon: cn('h-4 w-4'),
   leadText: cn(
-    '-my-3 flex justify-between gap-x-4 divide-y divide-gray-100 px-6 py-7 text-sm leading-6 text-zinc-500',
+    '-my-3 flex justify-between gap-x-4 divide-y divide-gray-100 px-6 py-7 text-sm leading-6 text-secondary-foreground',
   ),
   createLink: buttonVariants({
     className: cn('mx-7 mb-6 mt-4 w-[calc(100%-3.5rem)] cursor-pointer'),

@@ -6,7 +6,7 @@ export const classname = {
   message: cn('pb-2 text-xs text-destructive'),
   nameWrapper: cn('relative'),
   namePrefix: cn(
-    'absolute inset-y-0 left-0 grid w-8 place-items-center text-sm text-zinc-400',
+    'absolute inset-y-0 left-0 grid w-8 place-items-center text-sm text-muted-foreground',
   ),
   nameInput: cn('pl-7 text-sm'),
   button: cn('mt-4'),

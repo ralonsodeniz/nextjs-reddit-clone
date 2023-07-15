@@ -8,7 +8,7 @@ export const revalidate = 0;
 
 const classname = {
   container: cn(
-    'mx-auto flex h-full max-w-3xl flex-col justify-between space-y-6 rounded-lg bg-white p-4',
+    'mx-auto flex h-full max-w-3xl flex-col justify-between space-y-6 rounded-lg p-4',
   ),
   title: cn('text-xl font-semibold'),
   separator: cn('h-px w-full bg-zinc-500'),

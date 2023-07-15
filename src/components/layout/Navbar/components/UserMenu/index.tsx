@@ -26,9 +26,9 @@ interface IUserMenu {
 
 const classname = {
   name: cn('font-bold'),
-  email: cn('w-[200px]  truncate text-sm text-zinc-700'),
+  email: cn('w-[200px]  truncate text-sm text-popover-foreground'),
   link: cn('w-full'),
-  signOut: cn('cursor-pointer text-sm font-semibold text-zinc-700'),
+  signOut: cn('cursor-pointer text-sm font-semibold text-popover-foreground'),
 };
 
 const UserMenu = ({ user }: IUserMenu) => {

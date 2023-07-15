@@ -10,7 +10,10 @@ import { EN } from '@/locale/en';
 
 const classname = {
   link: (disabled: boolean) =>
-    cn(buttonVariants(), disabled && 'pointer-events-none opacity-50'),
+    cn(
+      buttonVariants({ variant: 'secondary' }),
+      disabled && 'pointer-events-none opacity-50',
+    ),
 };
 
 const SignInLink = () => {

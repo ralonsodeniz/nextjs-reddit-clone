@@ -51,4 +51,7 @@ export const EN = {
     avatarAlt: 'user profile picture',
     logoAlt: 'Koolala logo',
   },
+  themeToggle: {
+    text: 'Toggle theme',
+  },
 };
