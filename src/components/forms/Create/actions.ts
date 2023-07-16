@@ -2,11 +2,11 @@
 
 import { revalidatePath } from 'next/cache';
 
-import { schema } from '@/components/forms/Create/schema';
+import { schema, TCreateCommunity } from '@/components/forms/Create/schema';
 import { errors } from '@/components/forms/Create/ServerActionForm';
 import { ROUTES } from '@/constants/routes';
 
-const serverSideValidation = async (data: FormData) => {
+const serverSideValidation = (data: FormData) => {
   const dataObject = Object.fromEntries(data.entries());
   const parsedData = schema.safeParse(dataObject);
   errors.clear();
@@ -16,16 +16,16 @@ const serverSideValidation = async (data: FormData) => {
     });
   }
 
-  return parsedData.success;
+  return parsedData;
 };
 
-export const createCommunity = async (data: FormData) => {
+export const createCommunity = async (values: TCreateCommunity) => {
   await new Promise(resolve => setTimeout(resolve, 1000));
-  console.log('createCommunity');
+  console.log('createCommunity', values);
 };
 
 export const createCommunityWithRevalidation = async (data: FormData) => {
-  const isValid = await serverSideValidation(data);
-  isValid && (await createCommunity(data));
+  const parsedData = serverSideValidation(data);
+  parsedData.success && (await createCommunity(parsedData.data));
   revalidatePath(ROUTES.create.href);
 };

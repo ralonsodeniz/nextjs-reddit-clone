@@ -1,12 +1,15 @@
 'use client';
 
-import { useTransition } from 'react';
+import {
+  useEffect,
+  experimental_useEffectEvent as useEffectEvent,
+} from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import * as z from 'zod';
 
 import { createCommunity } from '@/components/forms/Create/actions';
 import { schema } from '@/components/forms/Create/schema';
+import { classname } from '@/components/forms/Create/styles';
 import Button from '@/components/ui/Button';
 import {
   Form,
@@ -17,38 +20,47 @@ import {
   FormMessage,
 } from '@/components/ui/Form';
 import { Input } from '@/components/ui/Input';
-import { cn } from '@/lib/classnames';
 import { EN } from '@/locale/en';
 
-const classname = {
-  label: cn('text-xl font-medium'),
-  description: (error: boolean) =>
-    cn('pb-2 text-xs', !error && 'text-zinc-400'),
-  nameWrapper: cn('relative'),
-  namePrefix: cn(
-    'absolute inset-y-0 left-0 grid w-8 place-items-center text-sm text-zinc-400',
-  ),
-  nameInput: cn('pl-7 text-sm'),
-  button: cn('mt-4'),
-};
+import type { TCreateCommunity } from '@/components/forms/Create/schema';
 
 const CreateForm = () => {
-  const [isPending, startTransition] = useTransition();
-  const form = useForm<z.infer<typeof schema>>({
+  const form = useForm<TCreateCommunity>({
     resolver: zodResolver(schema),
     defaultValues: {
       name: '',
     },
   });
 
-  const handleSubmit = async (data: FormData) => {
-    const isValid = await form.trigger();
-    isValid && startTransition(() => createCommunity(data));
+  const {
+    control,
+    formState: { isSubmitting, isSubmitSuccessful },
+    handleSubmit,
+    reset,
+    trigger,
+  } = form;
+
+  const onSubmit = (values: TCreateCommunity) => createCommunity(values);
+  const handleAction = async (data: FormData) => {
+    const isValid = await trigger();
+    isValid &&
+      (await createCommunity(Object.fromEntries(data) as TCreateCommunity));
   };
+
+  // https://react.dev/learn/separating-events-from-effects#declaring-an-effect-event
+  const onSubmitSuccess = useEffectEvent(() => {
+    reset();
+  });
+
+  useEffect(() => {
+    onSubmitSuccess();
+    // Effect Events are not reactive and must be omitted from dependencies
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSubmitSuccessful]);
 
   return (
     <Form {...form}>
-      <form action={handleSubmit}>
+      <form action={handleAction} onSubmit={handleSubmit(onSubmit)}>
         <FormField
           render={({ field, fieldState }) => (
             <FormItem>
@@ -56,7 +68,7 @@ const CreateForm = () => {
                 {EN.create.form.name.title}
               </FormLabel>
               <FormMessage
-                className={classname.description(!!fieldState.error)}
+                className={classname.clientSideDescription(!!fieldState.error)}
               >
                 {EN.create.form.name.description}
               </FormMessage>
@@ -73,9 +85,13 @@ const CreateForm = () => {
             </FormItem>
           )}
           name="name"
-          control={form.control}
+          control={control}
         />
-        <Button className={classname.button} type="submit" disabled={isPending}>
+        <Button
+          className={classname.button}
+          type="submit"
+          disabled={isSubmitting}
+        >
           {EN.create.form.button}
         </Button>
       </form>
