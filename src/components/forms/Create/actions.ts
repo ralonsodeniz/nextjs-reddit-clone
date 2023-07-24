@@ -2,13 +2,16 @@
 
 import { revalidatePath } from 'next/cache';
 
-import { schema, TCreateCommunity } from '@/components/forms/Create/schema';
+import {
+  createCommunitySchema,
+  TCreateCommunity,
+} from '@/components/forms/Create/schema';
 import { errors } from '@/components/forms/Create/ServerActionForm';
 import { ROUTES } from '@/constants/routes';
 
 const serverSideValidation = (data: FormData) => {
   const dataObject = Object.fromEntries(data.entries());
-  const parsedData = schema.safeParse(dataObject);
+  const parsedData = createCommunitySchema.safeParse(dataObject);
   errors.clear();
   if (!parsedData.success) {
     parsedData.error.errors.forEach(error => {
