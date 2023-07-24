@@ -8,9 +8,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
 import { createCommunity } from '@/components/forms/Create/actions';
-import { schema } from '@/components/forms/Create/schema';
+import { createCommunitySchema } from '@/components/forms/Create/schema';
 import { classname } from '@/components/forms/Create/styles';
 import Button from '@/components/ui/Button';
+import { ICON_POSITIONS } from '@/components/ui/Button/constants';
 import {
   Form,
   FormControl,
@@ -26,7 +27,7 @@ import type { TCreateCommunity } from '@/components/forms/Create/schema';
 
 const CreateForm = () => {
   const form = useForm<TCreateCommunity>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(createCommunitySchema),
     defaultValues: {
       name: '',
     },
@@ -89,8 +90,9 @@ const CreateForm = () => {
         />
         <Button
           className={classname.button}
+          iconPosition={ICON_POSITIONS.RIGHT}
+          isLoading={isSubmitting}
           type="submit"
-          disabled={isSubmitting}
         >
           {EN.create.form.button}
         </Button>

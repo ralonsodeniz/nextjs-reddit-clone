@@ -1,5 +1,10 @@
 import { cva } from 'class-variance-authority';
 
+import { ICON_POSITIONS } from '@/components/ui/Button/constants';
+import { cn } from '@/lib/classnames';
+
+import type { TIconPosition } from '@/components/ui/Button/types';
+
 export const buttonVariants = cva(
   'inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
@@ -32,5 +37,9 @@ export const buttonVariants = cva(
 );
 
 export const classname = {
-  loading: 'animate-spin mr-2 h-4 w-4',
+  loading: (iconPosition: TIconPosition) =>
+    cn(
+      'h-4 w-4 animate-spin',
+      iconPosition === ICON_POSITIONS.LEFT ? 'mr-2' : 'order-2 ml-2',
+    ),
 };
