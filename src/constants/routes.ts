@@ -10,6 +10,13 @@ export const ROUTES = {
   },
   create: {
     href: '/k/create',
+    subRoutes: {
+      serverAction: {
+        get href() {
+          return `${ROUTES.create.href}/server-action`;
+        },
+      },
+    },
   },
   profile: {
     href: '/profile',

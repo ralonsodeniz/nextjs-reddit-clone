@@ -38,6 +38,7 @@ export const EN = {
       },
       button: 'Create',
     },
+    link: 'Server Action version',
   },
   auth: {
     google: 'Sign in with Google',
