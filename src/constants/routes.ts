@@ -1,6 +1,6 @@
 export const ROUTES = {
   create: {
-    href: '/k/create',
+    href: '/create',
     subRoutes: {
       serverAction: {
         get href() {

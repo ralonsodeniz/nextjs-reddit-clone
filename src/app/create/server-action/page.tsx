@@ -1,4 +1,4 @@
-import { classname } from '@/app/k/create/styles';
+import { classname } from '@/app/create/styles';
 import ServerActionForm, {
   errors,
 } from '@/components/forms/Create/ServerAction';

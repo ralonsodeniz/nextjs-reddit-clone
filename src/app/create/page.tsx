@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { classname } from '@/app/k/create/styles';
+import { classname } from '@/app/create/styles';
 import CreateForm from '@/components/forms/Create';
 import { ROUTES } from '@/constants/routes';
 import { EN } from '@/locale/en';
