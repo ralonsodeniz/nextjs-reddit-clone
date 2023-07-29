@@ -35,6 +35,18 @@
     "@typescript-eslint/no-unsafe-assignment": "off",
     "tailwindcss/no-custom-classname": "off"
   },
+  "overrides": [
+    {
+      "files": ["**/?(*.)+(spec|test).ts?(x)"],
+      "plugins": ["jest", "jest-dom", "testing-library"],
+      "extends": [
+        "plugin:jest/recommended",
+        "plugin:jest/style",
+        "plugin:jest-dom/recommended",
+        "plugin:testing-library/react"
+      ]
+    }
+  ],
   "settings": {
     "tailwindcss": {
       "callees": ["cn", "cva"],
@@ -52,5 +64,11 @@
       "jsx": true
     },
     "ecmaVersion": "latest"
+  },
+  "env": {
+    "browser": true,
+    "jest": true,
+    "node": true,
+    "es2022": true
   }
 }
