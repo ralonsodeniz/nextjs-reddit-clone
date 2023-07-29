@@ -8,13 +8,13 @@ import { cn } from '@/lib/classnames';
 import { EN } from '@/locale/en';
 
 const classname = {
-  light: cn('h-[1.5rem] w-[1.3rem] dark:hidden'),
   dark: cn('hidden h-5 w-5 dark:block'),
+  light: cn('h-[1.5rem] w-[1.3rem] dark:hidden'),
   text: cn('sr-only'),
 };
 
 export const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
 
   const handleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 

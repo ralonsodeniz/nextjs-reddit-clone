@@ -24,14 +24,14 @@ import type { TCreateCommunity } from '@/components/forms/Create/schema';
 const CreateForm = () => {
   const { toast } = useToast();
   const form = useForm<TCreateCommunity>({
-    resolver: zodResolver(createCommunitySchema),
     defaultValues: {
       name: '',
     },
+    resolver: zodResolver(createCommunitySchema),
   });
   const {
     control,
-    formState: { isSubmitting, isSubmitSuccessful },
+    formState: { isSubmitSuccessful, isSubmitting },
     handleSubmit,
     reset,
   } = form;
@@ -45,8 +45,8 @@ const CreateForm = () => {
     } catch (error) {
       if (error instanceof HTTPError)
         toast({
-          title: error.message,
           description: error.errors && <ErrorToast errors={error.errors} />,
+          title: error.message,
           variant: 'destructive',
         });
     }

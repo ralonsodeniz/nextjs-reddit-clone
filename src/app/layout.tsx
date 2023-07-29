@@ -12,31 +12,31 @@ import '../styles/globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Koolala',
   description: 'NextJS reddit clone',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
   icons: {
+    apple: '/apple-touch-icon.png',
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
   },
+  themeColor: [
+    { color: 'white', media: '(prefers-color-scheme: light)' },
+    { color: 'black', media: '(prefers-color-scheme: dark)' },
+  ],
+  title: 'Koolala',
 };
 
 interface IRootLayout {
-  children: ReactNode;
   authModal: ReactNode;
+  children: ReactNode;
 }
 
 const classname = {
-  html: cn('bg-background text-slate-900 antialiased'),
   body: cn(['flex min-h-screen flex-col antialiased', inter.className]),
+  html: cn('bg-background text-slate-900 antialiased'),
   main: cn('container h-full max-w-7xl flex-1 pt-20'),
 };
 
-const RootLayout = ({ children, authModal }: IRootLayout) => {
+const RootLayout = ({ authModal, children }: IRootLayout) => {
   return (
     <html lang="en" className={classname.html} suppressHydrationWarning>
       <body className={classname.body}>

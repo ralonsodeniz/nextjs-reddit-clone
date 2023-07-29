@@ -1,15 +1,15 @@
 import { cn } from '@/lib/classnames';
 
 export const classname = {
-  label: cn('text-xl font-medium'),
-  description: (error: boolean) => cn('pb-2 text-xs', !error && 'pb-8'),
-  message: cn(' pb-2 text-xs  text-destructive'),
+  button: cn('mt-4'),
   clientSideDescription: (error: boolean) =>
     cn('pb-2 text-xs', !error && 'text-foreground'),
-  nameWrapper: cn('relative'),
+  description: (error: boolean) => cn('pb-2 text-xs', !error && 'pb-8'),
+  label: cn('text-xl font-medium'),
+  message: cn(' pb-2 text-xs  text-destructive'),
+  nameInput: cn('pl-7 text-sm'),
   namePrefix: cn(
     'absolute inset-y-0 left-0 grid w-8 place-items-center text-sm text-muted-foreground',
   ),
-  nameInput: cn('pl-7 text-sm'),
-  button: cn('mt-4'),
+  nameWrapper: cn('relative'),
 };

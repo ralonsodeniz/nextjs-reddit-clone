@@ -10,7 +10,7 @@ interface IUserAvatar extends AvatarProps {
   user: Pick<User, 'name' | 'image'>;
 }
 
-const UserAvatar = ({ user, className }: IUserAvatar) => {
+const UserAvatar = ({ className, user }: IUserAvatar) => {
   const userInitials =
     user.name &&
     user.name

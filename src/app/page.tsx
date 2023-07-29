@@ -8,21 +8,21 @@ import { cn } from '@/lib/classnames';
 import { EN } from '@/locale/en';
 
 const classname = {
-  title: cn('text-3xl font-bold md:text-4xl'),
+  createLink: buttonVariants({
+    className: cn('mx-7 mb-6 mt-4 w-[calc(100%-3.5rem)] cursor-pointer'),
+  }),
   grid: cn('grid grid-cols-1 gap-y-4 py-6 md:grid-cols-3 md:gap-x-4'),
+  homeIcon: cn('h-4 w-4'),
   info: cn(
     'order-first h-fit overflow-hidden rounded-lg border border-gray-200 md:order-last',
   ),
   infoText: cn(
     'flex items-center gap-1.5 bg-foreground px-6 py-7 font-semibold text-background',
   ),
-  homeIcon: cn('h-4 w-4'),
   leadText: cn(
     '-my-3 flex justify-between gap-x-4 divide-y divide-gray-100 px-6 py-7 text-sm leading-6 text-secondary-foreground',
   ),
-  createLink: buttonVariants({
-    className: cn('mx-7 mb-6 mt-4 w-[calc(100%-3.5rem)] cursor-pointer'),
-  }),
+  title: cn('text-3xl font-bold md:text-4xl'),
 };
 
 const HomePage = async () => {

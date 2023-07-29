@@ -1,13 +1,4 @@
 export const ROUTES = {
-  home: {
-    href: '/',
-  },
-  signIn: {
-    href: '/sign-in',
-  },
-  signUp: {
-    href: '/sign-up',
-  },
   create: {
     href: '/k/create',
     subRoutes: {
@@ -18,8 +9,17 @@ export const ROUTES = {
       },
     },
   },
+  home: {
+    href: '/',
+  },
   profile: {
     href: '/profile',
+  },
+  signIn: {
+    href: '/sign-in',
+  },
+  signUp: {
+    href: '/sign-up',
   },
 } as const;
 

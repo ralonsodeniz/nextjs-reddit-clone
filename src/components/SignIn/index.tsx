@@ -6,8 +6,8 @@ import { cn } from '@/lib/classnames';
 import { EN } from '@/locale/en';
 
 const classname = {
-  image: cn('mx-auto'),
   header: cn('text-2xl font-semibold tracking-tight'),
+  image: cn('mx-auto'),
   licence: cn('mx-auto max-w-xs text-sm'),
 };
 

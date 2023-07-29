@@ -8,7 +8,7 @@ export const enhancedFetch = async <T>(
   url: TStringWithPrefix<'/' | 'http://' | 'https://'>,
   options?: RequestInit,
   params: Record<string, string> = {},
-): Promise<T> => {
+) => {
   const computedOptions = {
     headers: {
       'Content-Type': 'application/json',
@@ -22,14 +22,18 @@ export const enhancedFetch = async <T>(
     computedUrl.searchParams.append(key, value),
   );
   const response = await fetch(computedUrl, computedOptions);
-  const data = await response.json();
-  if (!response.ok)
+  if (!response.ok) {
+    const data = (await response.json()) as {
+      errors?: string[];
+      message: string;
+    };
     throw new HTTPError(
       response.status,
       response.statusText,
       data.message,
       data.errors,
     );
+  }
 
-  return data;
+  return (await response.json()) as T;
 };

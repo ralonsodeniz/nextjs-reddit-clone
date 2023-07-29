@@ -10,15 +10,15 @@ import { cn } from '@/lib/classnames';
 import { EN } from '@/locale/en';
 
 const classname = {
-  header: cn(
-    'fixed inset-x-0 top-0 z-10 h-fit border-b border-zinc-200 bg-foreground py-2',
-  ),
   container: cn(
     'container flex h-full max-w-7xl items-center justify-between gap-2',
   ),
+  header: cn(
+    'fixed inset-x-0 top-0 z-10 h-fit border-b border-zinc-200 bg-foreground py-2',
+  ),
+  hiddenText: cn('hidden text-sm font-medium text-background sm:block'),
   logoLink: cn('flex items-center gap-2'),
   logoWrapper: cn('relative h-12 w-12 sm:h-10 sm:w-10'),
-  hiddenText: cn('hidden text-sm font-medium text-background sm:block'),
   signInContainer: cn('flex items-center gap-2'),
   signInLink: cn('disabled:pointer-events-none disabled:opacity-50'),
 };

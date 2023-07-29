@@ -1,9 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { z } from 'zod';
 
 import { createCommunitySchema } from '@/components/forms/Create/schema';
 import { getAuthSession } from '@/lib/auth';
 import { checkIfCommunityExists, createCommunity } from '@/lib/db/community';
+
+import type { NextRequest } from 'next/server';
 
 export const POST = async (req: NextRequest) => {
   try {
@@ -30,8 +32,8 @@ export const POST = async (req: NextRequest) => {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
         {
-          message: 'Validation Error',
           errors: error.issues.map(issue => issue.message),
+          message: 'Validation Error',
         },
         { status: 422 },
       );

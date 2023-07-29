@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/require-await */
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { nanoid } from 'nanoid';
 import { getServerSession } from 'next-auth';
@@ -11,30 +12,7 @@ import type { NextAuthOptions } from 'next-auth';
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db),
-  session: {
-    strategy: 'jwt',
-  },
-  pages: {
-    signIn: '/sign-in',
-  },
-  providers: [
-    GoogleProvider({
-      clientId: env.GOOGLE_CLIENT_ID,
-      clientSecret: env.GOOGLE_CLIENT_SECRET,
-    }),
-  ],
   callbacks: {
-    async session({ token, session }) {
-      if (token) {
-        session.user.id = token.id;
-        session.user.name = token.name;
-        session.user.email = token.email;
-        session.user.image = token.picture;
-        session.user.username = token.username;
-      }
-
-      return session;
-    },
     async jwt({ token, user }) {
       const dbUser = await db.user.findFirst({
         where: { email: token.email },
@@ -47,15 +25,15 @@ export const authOptions: NextAuthOptions = {
 
       if (!dbUser.username) {
         await db.user.update({
-          where: { id: dbUser.id },
           data: { username: nanoid(10) },
+          where: { id: dbUser.id },
         });
       }
 
       return {
+        email: dbUser.email,
         id: dbUser.id,
         name: dbUser.name,
-        email: dbUser.email,
         picture: dbUser.image,
         username: dbUser.username,
       };
@@ -63,6 +41,29 @@ export const authOptions: NextAuthOptions = {
     redirect() {
       return ROUTES.home.href;
     },
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = token.id;
+        session.user.name = token.name;
+        session.user.email = token.email;
+        session.user.image = token.picture;
+        session.user.username = token.username;
+      }
+
+      return session;
+    },
+  },
+  pages: {
+    signIn: '/sign-in',
+  },
+  providers: [
+    GoogleProvider({
+      clientId: env.GOOGLE_CLIENT_ID,
+      clientSecret: env.GOOGLE_CLIENT_SECRET,
+    }),
+  ],
+  session: {
+    strategy: 'jwt',
   },
 };
 

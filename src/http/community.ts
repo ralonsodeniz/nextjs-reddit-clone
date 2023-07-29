@@ -6,6 +6,6 @@ import type { Community } from '@prisma/client';
 
 export const postCommunity = async (values: TCreateCommunity) =>
   enhancedFetch<Community>(API_ROUTES.create, {
-    method: 'POST',
     body: JSON.stringify(values),
+    method: 'POST',
   });

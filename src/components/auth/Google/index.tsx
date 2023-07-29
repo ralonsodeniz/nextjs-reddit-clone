@@ -23,8 +23,8 @@ export const GoogleAuth = () => {
       await signIn('google', { callbackUrl: '/' });
     } catch (error) {
       toast({
-        title: EN.components.auth.error.title,
         description: EN.components.auth.error.description,
+        title: EN.components.auth.error.title,
         variant: 'destructive',
       });
     } finally {

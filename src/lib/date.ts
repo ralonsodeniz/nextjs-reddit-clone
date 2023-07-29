@@ -1,23 +1,25 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { formatDistanceToNowStrict } from 'date-fns';
 import locale from 'date-fns/locale/en-US';
 
 const formatDistanceLocale = {
-  lessThanXSeconds: 'just now',
-  xSeconds: 'just now',
+  aboutXHours: '{{count}}h',
+  aboutXMonths: '{{count}}m',
+  aboutXWeeks: '{{count}}w',
+  aboutXYears: '{{count}}y',
+  almostXYears: '{{count}}y',
   halfAMinute: 'just now',
   lessThanXMinutes: '{{count}}m',
-  xMinutes: '{{count}}m',
-  aboutXHours: '{{count}}h',
-  xHours: '{{count}}h',
-  xDays: '{{count}}d',
-  aboutXWeeks: '{{count}}w',
-  xWeeks: '{{count}}w',
-  aboutXMonths: '{{count}}m',
-  xMonths: '{{count}}m',
-  aboutXYears: '{{count}}y',
-  xYears: '{{count}}y',
+  lessThanXSeconds: 'just now',
   overXYears: '{{count}}y',
-  almostXYears: '{{count}}y',
+  xDays: '{{count}}d',
+  xHours: '{{count}}h',
+  xMinutes: '{{count}}m',
+  xMonths: '{{count}}m',
+  xSeconds: 'just now',
+  xWeeks: '{{count}}w',
+  xYears: '{{count}}y',
 };
 
 const formatDistance = (token: string, count: number, options: any = {}) => {

@@ -14,12 +14,12 @@ export const useOnClickOutside = <T extends HTMLElement>(
       !ref?.current.contains(event.target as Node) &&
       handler(event);
 
-    document.addEventListener('mousedown', handler);
-    document.addEventListener('touchstart', handler);
+    document.addEventListener('mousedown', listener);
+    document.addEventListener('touchstart', listener);
 
     return () => {
-      document.removeEventListener('mousedown', handler);
-      document.removeEventListener('touchstart', handler);
+      document.removeEventListener('mousedown', listener);
+      document.removeEventListener('touchstart', listener);
     };
   }, [handler, ref]);
 };
