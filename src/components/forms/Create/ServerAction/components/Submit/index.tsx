@@ -18,7 +18,7 @@ const Submit = () => {
       isLoading={pending}
       iconPosition={ICON_POSITIONS.RIGHT}
     >
-      {EN.create.form.button}
+      {EN.components.forms.create.button}
     </Button>
   );
 };

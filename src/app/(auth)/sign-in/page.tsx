@@ -1,4 +1,4 @@
-import SignIn from '@/components/module/SignIn';
+import SignIn from '@/components/SignIn';
 import { buttonVariants } from '@/components/ui/Button/styles';
 import { cn } from '@/lib/classnames';
 

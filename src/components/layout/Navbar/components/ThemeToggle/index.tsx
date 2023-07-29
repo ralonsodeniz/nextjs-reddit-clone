@@ -22,7 +22,9 @@ export const ThemeToggle = () => {
     <Button size="icon" variant="ghostSecondary" onClick={handleTheme}>
       <Sun className={classname.light} />
       <Moon className={classname.dark} />
-      <span className={classname.text}>{EN.themeToggle.text}</span>
+      <span className={classname.text}>
+        {EN.layout.navBar.themeToggle.text}
+      </span>
     </Button>
   );
 };

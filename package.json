@@ -8,6 +8,7 @@
     "db:generate": "npx prisma generate",
     "db:migrate": "npx prisma migrate dev",
     "db:push": "npx prisma db push",
+    "db:studio": "npx prisma studio",
     "dev": "yarn clear && next dev",
     "lint": "next lint",
     "lint:fix": "next lint --fix",

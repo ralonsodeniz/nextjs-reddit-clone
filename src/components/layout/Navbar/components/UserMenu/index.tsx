@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 
 import { navigationLinks } from '@/components/layout/Navbar/components/UserMenu/constants';
-import UserAvatar from '@/components/module/UserAvatar';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,6 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/DropdownMenu';
+import UserAvatar from '@/components/UserAvatar';
 import { cn } from '@/lib/classnames';
 import { EN } from '@/locale/en';
 
@@ -59,7 +59,7 @@ const UserMenu = ({ user }: IUserMenu) => {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuLabel>
-            {EN.navBar.userMenu.labels.navigation}
+            {EN.layout.navBar.userMenu.labels.navigation}
           </DropdownMenuLabel>
           {navigationLinks.map(link => (
             <DropdownMenuItem key={link.href}>
@@ -71,7 +71,7 @@ const UserMenu = ({ user }: IUserMenu) => {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem className={classname.signOut} onClick={handleSignOut}>
-          {EN.navBar.userMenu.signOut}
+          {EN.layout.navBar.userMenu.signOut}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

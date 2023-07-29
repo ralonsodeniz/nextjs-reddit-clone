@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 
-import SignIn from '@/components/module/SignIn';
+import SignIn from '@/components/SignIn';
 import { Dialog, DialogContent } from '@/components/ui/Dialog';
 import { cn } from '@/lib/classnames';
 

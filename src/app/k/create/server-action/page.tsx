@@ -1,21 +1,22 @@
-import ServerActionForm from '@/components/forms/Create/ServerActionForm';
-import { cn } from '@/lib/classnames';
+import { classname } from '@/app/k/create/styles';
+import ServerActionForm, {
+  errors,
+} from '@/components/forms/Create/ServerAction';
 import { EN } from '@/locale/en';
 
-const classname = {
-  container: cn(
-    'mx-auto flex h-full max-w-3xl flex-col justify-between space-y-6 rounded-lg p-4',
-  ),
-  title: cn('text-xl font-semibold'),
-  separator: cn('h-px w-full bg-zinc-500'),
-};
+const CreatePage = () => {
+  const errorText = errors.get('server');
 
-const CreatePage = () => (
-  <section className={classname.container}>
-    <h1 className={classname.title}>{EN.create.title}</h1>
-    <hr className={classname.separator} />
-    <ServerActionForm />
-  </section>
-);
+  return (
+    <section className={classname.container}>
+      <h1 className={classname.title}>
+        <span>{EN.pages.create.title}</span>
+        {errorText && <span className={classname.error}>{errorText}</span>}
+      </h1>
+      <hr className={classname.separator} />
+      <ServerActionForm />
+    </section>
+  );
+};
 
 export default CreatePage;

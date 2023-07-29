@@ -28,8 +28,8 @@ const classname = {
 const HomePage = async () => {
   const session = await getAuthSession();
   const title = session
-    ? EN.home.welcome(session?.user.name ?? EN.common.userName)
-    : EN.home.notSignedIn;
+    ? EN.pages.home.welcome(session?.user.name ?? EN.common.userName)
+    : EN.pages.home.notSignedIn;
 
   return (
     <>
@@ -38,9 +38,11 @@ const HomePage = async () => {
         <article className={classname.info}>
           <p className={classname.infoText}>
             <HomeIcon className={classname.homeIcon} />
-            {EN.home.communityInfo.home}
+            {EN.pages.home.communityInfo.home}
           </p>
-          <p className={classname.leadText}>{EN.home.communityInfo.lead}</p>
+          <p className={classname.leadText}>
+            {EN.pages.home.communityInfo.lead}
+          </p>
           <Link href={ROUTES.create.href} className={classname.createLink}>
             {EN.routes.create}
           </Link>

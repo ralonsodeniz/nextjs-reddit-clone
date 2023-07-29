@@ -39,7 +39,7 @@ const Index = async () => {
               sizes="(min-width: 640) 2.5rem, 3rem"
             />
           </div>
-          <span className={classname.hiddenText}>{EN.navBar.title}</span>
+          <span className={classname.hiddenText}>{EN.layout.navBar.title}</span>
         </Link>
         <div className={classname.signInContainer}>
           {!session?.user ? <SignInLink /> : <UserMenu user={session.user} />}
