@@ -25,10 +25,11 @@ jobs:
         run: yarn install --immutable
 
       - name: Build
-        run: next build
+        run: yarn next build
 
   checks:
     name: Run ${{ matrix.work }}
+    needs: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
