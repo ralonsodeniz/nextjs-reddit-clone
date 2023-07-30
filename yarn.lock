@@ -2477,6 +2477,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/eslint@npm:^8.0.0":
+  version: 8.44.1
+  resolution: "@types/eslint@npm:8.44.1"
+  dependencies:
+    "@types/estree": "*"
+    "@types/json-schema": "*"
+  checksum: 8b45be72d3c22a1ee0b1cc7e7fb0e34e32bbf959e6b7e0e46d160c17894aedf159c1db5c85750f10068884c741eebc37a1cc7ea659de23a8df0c9a3203e2ff9d
+  languageName: node
+  linkType: hard
+
+"@types/estree@npm:*":
+  version: 1.0.1
+  resolution: "@types/estree@npm:1.0.1"
+  checksum: e9aa175eacb797216fafce4d41e8202c7a75555bc55232dee0f9903d7171f8f19f0ae7d5191bb1a88cb90e65468be508c0df850a9fb81b4433b293a5a749899d
+  languageName: node
+  linkType: hard
+
 "@types/graceful-fs@npm:^4.1.3":
   version: 4.1.6
   resolution: "@types/graceful-fs@npm:4.1.6"
@@ -2532,7 +2549,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/json-schema@npm:^7.0.12, @types/json-schema@npm:^7.0.9":
+"@types/json-schema@npm:*, @types/json-schema@npm:^7.0.12, @types/json-schema@npm:^7.0.9":
   version: 7.0.12
   resolution: "@types/json-schema@npm:7.0.12"
   checksum: 00239e97234eeb5ceefb0c1875d98ade6e922bfec39dd365ec6bd360b5c2f825e612ac4f6e5f1d13601b8b30f378f15e6faa805a3a732f4a1bbe61915163d293
@@ -4859,6 +4876,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-formatter-pretty@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "eslint-formatter-pretty@npm:5.0.0"
+  dependencies:
+    "@types/eslint": ^8.0.0
+    ansi-escapes: ^4.2.1
+    chalk: ^4.1.0
+    eslint-rule-docs: ^1.1.235
+    log-symbols: ^4.0.0
+    plur: ^4.0.0
+    string-width: ^4.2.0
+    supports-hyperlinks: ^2.0.0
+  checksum: 0bb8e685fbf1f53deb3c438ad4cef7871011b55697bc74cca090787b93a671153080e2d4b65489e825912ac733a1c9aceae5ad6f60efcea3c08efb8aee013dc4
+  languageName: node
+  linkType: hard
+
 "eslint-import-resolver-node@npm:^0.3.6, eslint-import-resolver-node@npm:^0.3.7":
   version: 0.3.7
   resolution: "eslint-import-resolver-node@npm:0.3.7"
@@ -5075,6 +5108,13 @@ __metadata:
     eslint: ^5 || ^6 || ^7 || ^8
     typescript: ^3 || ^4 || ^5
   checksum: 3c00e77c2761dbd7c5b6d61883ddfb587eb32f4f5bddf2694f88ec278ac4e1f1c14694d04755c55cc6ed5313d7dcd407c376034cbc1871904f242f368a013091
+  languageName: node
+  linkType: hard
+
+"eslint-rule-docs@npm:^1.1.235":
+  version: 1.1.235
+  resolution: "eslint-rule-docs@npm:1.1.235"
+  checksum: b163596f9a05568e287b2c78f51a280092122a2e43c45fa2c200f0bd3f61877af186c641dab97620978bec96d9e2cfb621e51728044d9efe42ddc24f5a594b26
   languageName: node
   linkType: hard
 
@@ -6173,6 +6213,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"irregular-plurals@npm:^3.2.0":
+  version: 3.5.0
+  resolution: "irregular-plurals@npm:3.5.0"
+  checksum: 5b663091dc89155df7b2e9d053e8fb11941a0c4be95c4b6549ed3ea020489fdf4f75ea586c915b5b543704252679a5a6e8c6c3587da5ac3fc57b12da90a9aee7
+  languageName: node
+  linkType: hard
+
 "is-arguments@npm:^1.1.1":
   version: 1.1.1
   resolution: "is-arguments@npm:1.1.1"
@@ -6469,6 +6516,13 @@ __metadata:
     gopd: ^1.0.1
     has-tostringtag: ^1.0.0
   checksum: aac6ecb59d4c56a1cdeb69b1f129154ef462bbffe434cb8a8235ca89b42f258b7ae94073c41b3cb7bce37f6a1733ad4499f07882d5d5093a7ba84dfc4ebb8017
+  languageName: node
+  linkType: hard
+
+"is-unicode-supported@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "is-unicode-supported@npm:0.1.0"
+  checksum: a2aab86ee7712f5c2f999180daaba5f361bdad1efadc9610ff5b8ab5495b86e4f627839d085c6530363c6d6d4ecbde340fb8e54bdb83da4ba8e0865ed5513c52
   languageName: node
   linkType: hard
 
@@ -7449,6 +7503,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"log-symbols@npm:^4.0.0":
+  version: 4.1.0
+  resolution: "log-symbols@npm:4.1.0"
+  dependencies:
+    chalk: ^4.1.0
+    is-unicode-supported: ^0.1.0
+  checksum: fce1497b3135a0198803f9f07464165e9eb83ed02ceb2273930a6f8a508951178d8cf4f0378e9d28300a2ed2bc49050995d2bd5f53ab716bb15ac84d58c6ef74
+  languageName: node
+  linkType: hard
+
 "log-update@npm:^4.0.0":
   version: 4.0.0
   resolution: "log-update@npm:4.0.0"
@@ -8036,6 +8100,7 @@ __metadata:
     eslint: 8.43.0
     eslint-config-next: ^13.4.7
     eslint-config-prettier: ^8.8.0
+    eslint-formatter-pretty: ^5.0.0
     eslint-plugin-jest: ^27.2.3
     eslint-plugin-jest-dom: ^5.0.1
     eslint-plugin-react: ^7.32.2
@@ -8067,6 +8132,7 @@ __metadata:
     tailwind-merge: ^1.13.2
     tailwindcss: 3.3.2
     tailwindcss-animate: ^1.0.6
+    tsc-files: ^1.1.4
     typescript: 5.1.3
     uploadthing: ^4.0.0
     zod: ^3.21.4
@@ -8582,6 +8648,15 @@ __metadata:
   dependencies:
     find-up: ^4.0.0
   checksum: 9863e3f35132bf99ae1636d31ff1e1e3501251d480336edb1c211133c8d58906bed80f154a1d723652df1fda91e01c7442c2eeaf9dc83157c7ae89087e43c8d6
+  languageName: node
+  linkType: hard
+
+"plur@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "plur@npm:4.0.0"
+  dependencies:
+    irregular-plurals: ^3.2.0
+  checksum: fea2e903efca67cc5c7a8952fca3db46ae8d9e9353373b406714977e601a5d3b628bcb043c3ad2126c6ff0e73d8020bf43af30a72dd087eff1ec240eb13b90e1
   languageName: node
   linkType: hard
 
@@ -9979,7 +10054,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^7.1.0":
+"supports-color@npm:^7.0.0, supports-color@npm:^7.1.0":
   version: 7.2.0
   resolution: "supports-color@npm:7.2.0"
   dependencies:
@@ -9994,6 +10069,16 @@ __metadata:
   dependencies:
     has-flag: ^4.0.0
   checksum: c052193a7e43c6cdc741eb7f378df605636e01ad434badf7324f17fb60c69a880d8d8fcdcb562cf94c2350e57b937d7425ab5b8326c67c2adc48f7c87c1db406
+  languageName: node
+  linkType: hard
+
+"supports-hyperlinks@npm:^2.0.0":
+  version: 2.3.0
+  resolution: "supports-hyperlinks@npm:2.3.0"
+  dependencies:
+    has-flag: ^4.0.0
+    supports-color: ^7.0.0
+  checksum: 9ee0de3c8ce919d453511b2b1588a8205bd429d98af94a01df87411391010fe22ca463f268c84b2ce2abad019dfff8452aa02806eeb5c905a8d7ad5c4f4c52b8
   languageName: node
   linkType: hard
 
@@ -10292,6 +10377,17 @@ __metadata:
     ts-node-transpile-only: dist/bin-transpile.js
     ts-script: dist/bin-script-deprecated.js
   checksum: 090adff1302ab20bd3486e6b4799e90f97726ed39e02b39e566f8ab674fd5bd5f727f43615debbfc580d33c6d9d1c6b1b3ce7d8e3cca3e20530a145ffa232c35
+  languageName: node
+  linkType: hard
+
+"tsc-files@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "tsc-files@npm:1.1.4"
+  peerDependencies:
+    typescript: ">=3"
+  bin:
+    tsc-files: cli.js
+  checksum: 4acae1dcfe635f3153051707ed747acd095f7fb67ebb767133f80fe6a9bad572eecb062ac2077e06fcfff547e4bbc4eb9e04b64305f0dd11d62ff1d3eb638601
   languageName: node
   linkType: hard
 
