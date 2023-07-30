@@ -18,6 +18,7 @@
     "production": "yarn build && yarn start",
     "start": "next start",
     "test": "jest --passWithNoTests",
+    "test:ci": "yarn test --ci --coverage",
     "type-check": "tsc --pretty"
   },
   "dependencies": {
