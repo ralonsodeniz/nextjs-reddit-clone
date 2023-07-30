@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        work: [lint, format:check, type-check, test:ci]
+        work: [lint, 'format:check', type-check, 'test:ci']
     steps:
       - name: Checkout
         uses: actions/checkout@v3
