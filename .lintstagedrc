@@ -1,0 +1,7 @@
+{
+  "*.{mjs,js,jsx,ts,tsx,mdx}": [
+    "yarn lint --max-warnings=0",
+    "yarn type-check",
+    "yarn format:check"
+  ]
+}
