@@ -1,4 +1,7 @@
 export const ROUTES = {
+  community: {
+    href: (communityName: string) => `/k/${communityName}`,
+  },
   create: {
     href: '/create',
     subRoutes: {

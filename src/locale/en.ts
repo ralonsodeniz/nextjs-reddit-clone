@@ -20,6 +20,7 @@ export const EN = {
           prefix: 'k/',
           title: 'Name',
         },
+        toastRedirect: 'Go!',
       },
     },
     signIn: {

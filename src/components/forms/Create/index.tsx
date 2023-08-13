@@ -4,6 +4,7 @@ import {
   useEffect,
   experimental_useEffectEvent as useEffectEvent,
 } from 'react';
+import Link from 'next/link';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
@@ -13,8 +14,10 @@ import { createCommunitySchema } from '@/components/forms/Create/schema';
 import { classname } from '@/components/forms/Create/styles';
 import Button from '@/components/ui/Button';
 import { ICON_POSITIONS } from '@/components/ui/Button/constants';
+import { buttonVariants } from '@/components/ui/Button/styles';
 import { Form } from '@/components/ui/Form';
 import { useToast } from '@/components/ui/Toast/hooks/use-toast';
+import { ROUTES } from '@/constants/routes';
 import { postCommunity } from '@/http/community';
 import { HTTPError } from '@/http/utils/error';
 import { EN } from '@/locale/en';
@@ -40,6 +43,14 @@ const CreateForm = () => {
     try {
       const newCommunity = await postCommunity(values);
       toast({
+        action: (
+          <Link
+            className={buttonVariants({ variant: 'outline' })}
+            href={ROUTES.community.href(newCommunity.name)}
+          >
+            {EN.components.forms.create.toastRedirect}
+          </Link>
+        ),
         title: `${newCommunity.name} created successfully!`,
       });
     } catch (error) {
