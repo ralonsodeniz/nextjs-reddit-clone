@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/require-await */
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { nanoid } from 'nanoid';
 import { getServerSession } from 'next-auth';
@@ -41,7 +40,7 @@ export const authOptions: NextAuthOptions = {
     redirect() {
       return ROUTES.home.href;
     },
-    async session({ session, token }) {
+    session({ session, token }) {
       if (token) {
         session.user.id = token.id;
         session.user.name = token.name;
