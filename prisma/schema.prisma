@@ -63,20 +63,22 @@ model Community {
   createdAt   DateTime       @default(now())
   updatedAt   DateTime       @updatedAt
   posts       Post[]
-  creator     User           @relation("createdBy", fields: [creatorId], references: [id])
+  creator     User           @relation("createdBy", fields: [creatorId], references: [id], onDelete: Cascade)
   creatorId   String
   subscribers Subscription[]
 
-  @@index([name])
+  @@index([creatorId])
 }
 
 model Subscription {
   user        User      @relation(fields: [userId], references: [id])
   userId      String
-  community   Community @relation(fields: [communityId], references: [id])
+  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
   communityId String
 
   @@id([userId, communityId])
+  @@index([communityId])
+  @@index([userId])
 }
 
 model Post {
@@ -91,6 +93,9 @@ model Post {
   communityId String
   comments    Comment[]
   votes       Vote[]
+
+  @@index([authorId])
+  @@index([communityId])
 }
 
 model Comment {
@@ -106,6 +111,10 @@ model Comment {
   replies   Comment[]     @relation("ReplyTo")
   votes     CommentVote[]
   commentId String?
+
+  @@index([authorId])
+  @@index([postId])
+  @@index([replyToId])
 }
 
 enum VoteType {
@@ -121,6 +130,8 @@ model Vote {
   type   VoteType
 
   @@id([postId, userId])
+  @@index([userId])
+  @@index([postId])
 }
 
 model CommentVote {
@@ -131,4 +142,6 @@ model CommentVote {
   type      VoteType
 
   @@id([commentId, userId])
+  @@index([userId])
+  @@index([commentId])
 }
