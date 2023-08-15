@@ -12,11 +12,14 @@ import type { ReactNode } from 'react';
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 1000000;
 
-type ToasterToast = ToastProps & {
-  action?: ToastActionElement;
+type BaseToast = ToastProps & {
   description?: ReactNode;
-  id: string;
   title?: ReactNode;
+};
+
+type ToasterToast = BaseToast & {
+  action?: ToastActionElement;
+  id: string;
 };
 
 const actionTypes = {
@@ -141,21 +144,19 @@ function dispatch(action: Action) {
   });
 }
 
-type Toast = Omit<ToasterToast, 'id'>;
+type Toast = BaseToast & {
+  action?: (dismiss: () => void) => ToastActionElement;
+};
 
 function toast({ ...props }: Toast) {
   const id = genId();
-
-  const update = (props: ToasterToast) =>
-    dispatch({
-      toast: { ...props, id },
-      type: 'UPDATE_TOAST',
-    });
   const dismiss = () => dispatch({ toastId: id, type: 'DISMISS_TOAST' });
+  const { action, ...restProps } = props;
 
   dispatch({
     toast: {
-      ...props,
+      ...restProps,
+      action: action && action(dismiss),
       id,
       onOpenChange: open => {
         if (!open) dismiss();
@@ -164,6 +165,15 @@ function toast({ ...props }: Toast) {
     },
     type: 'ADD_TOAST',
   });
+
+  const update = (props: Toast) => {
+    const { action, ...restProps } = props;
+
+    dispatch({
+      toast: { ...restProps, action: action && action(dismiss), id },
+      type: 'UPDATE_TOAST',
+    });
+  };
 
   return {
     dismiss,

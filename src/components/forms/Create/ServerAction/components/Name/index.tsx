@@ -19,9 +19,7 @@ const Name = ({ error }: { error: string }) => (
         name="name"
         placeholder="Community name"
       />
-      <p className={classname.namePrefix}>
-        {EN.components.forms.create.name.prefix}
-      </p>
+      <p className={classname.namePrefix}>{EN.common.communityPrefix}</p>
     </div>
   </>
 );

@@ -1,6 +1,7 @@
 export const EN = {
   common: {
     avatarAlt: 'user profile picture',
+    communityPrefix: 'k/',
     logoAlt: 'Koolala logo',
     userName: 'Mememan',
   },
@@ -17,7 +18,6 @@ export const EN = {
         button: 'Create',
         name: {
           description: 'The name of your community',
-          prefix: 'k/',
           title: 'Name',
         },
         toastRedirect: 'Go!',
