@@ -2,7 +2,7 @@
 
 import { experimental_useFormStatus as useFormStatus } from 'react-dom';
 
-import { classname } from '@/components/forms/Create/styles';
+import { classname } from '@/components/forms/styles';
 import Button from '@/components/ui/Button';
 import { ICON_POSITIONS } from '@/components/ui/Button/constants';
 import { EN } from '@/locale/en';

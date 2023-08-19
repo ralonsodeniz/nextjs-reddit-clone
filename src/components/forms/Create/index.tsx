@@ -11,7 +11,7 @@ import CommunityLink from '@/components/forms/Create/components/CommunityLink';
 import Errors from '@/components/forms/Create/components/Errors';
 import Name from '@/components/forms/Create/components/Name';
 import { createCommunitySchema } from '@/components/forms/Create/schema';
-import { classname } from '@/components/forms/Create/styles';
+import { classname } from '@/components/forms/styles';
 import Button from '@/components/ui/Button';
 import { ICON_POSITIONS } from '@/components/ui/Button/constants';
 import { Form } from '@/components/ui/Form';
@@ -22,7 +22,7 @@ import { EN } from '@/locale/en';
 
 import type { TCreateCommunity } from '@/components/forms/Create/schema';
 
-const CreateForm = () => {
+const Create = () => {
   const { toast } = useToast();
   const form = useForm<TCreateCommunity>({
     defaultValues: {
@@ -84,4 +84,4 @@ const CreateForm = () => {
   );
 };
 
-export default CreateForm;
+export default Create;

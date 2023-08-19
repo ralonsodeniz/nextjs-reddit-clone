@@ -1,14 +1,15 @@
 import { classname } from '@/components/forms/Create/styles';
+import { classname as formClassname } from '@/components/forms/styles';
 import { Input } from '@/components/ui/Input';
 import { Label } from '@/components/ui/Label';
 import { EN } from '@/locale/en';
 
 const Name = ({ error }: { error: string }) => (
   <>
-    <Label htmlFor="name" className={classname.label}>
+    <Label htmlFor="name" className={formClassname.label}>
       {EN.components.forms.create.name.title}
     </Label>
-    <p className={classname.description(!!error)}>
+    <p className={classname.serverSideDescription(!!error)}>
       {EN.components.forms.create.name.description}
     </p>
     {!!error && <p className={classname.message}>{error}</p>}

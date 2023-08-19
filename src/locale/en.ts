@@ -22,6 +22,12 @@ export const EN = {
         },
         toastRedirect: 'Go!',
       },
+      quickPost: {
+        button: 'Post!',
+        description: (community: string) =>
+          `Share your thoughts in ${community}`,
+        placeholder: 'What are you thinking?',
+      },
     },
     signIn: {
       header: 'Welcome to Koolala',

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { classname } from '@/app/create/styles';
-import CreateForm from '@/components/forms/Create';
+import Create from '@/components/forms/Create';
 import { ROUTES } from '@/constants/routes';
 import { EN } from '@/locale/en';
 
@@ -17,7 +17,7 @@ const CreatePage = () => (
       </Link>
     </h1>
     <hr className={classname.separator} />
-    <CreateForm />
+    <Create />
   </section>
 );
 
