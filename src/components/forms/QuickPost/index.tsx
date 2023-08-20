@@ -51,6 +51,7 @@ const QuickPost = ({ session }: IQuickPost) => {
           <div className={classname.controls}>
             <UserAvatar user={session?.user || { image: null, name: null }} />
             <Button
+              aria-label={EN.components.forms.quickPost.buttonLabel}
               disabled={isSubmitting}
               form="content"
               type="submit"

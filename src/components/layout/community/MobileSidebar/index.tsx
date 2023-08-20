@@ -3,6 +3,7 @@ import { Menu } from 'lucide-react';
 import Sidebar from '@/components/layout/community/Sidebar';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/classnames';
+import { EN } from '@/locale/en';
 
 interface IMobileSidebar {
   communityName: string;
@@ -15,7 +16,10 @@ const classname = {
 
 const MobileSidebar = ({ communityName }: IMobileSidebar) => (
   <Sheet>
-    <SheetTrigger className={classname.trigger}>
+    <SheetTrigger
+      className={classname.trigger}
+      aria-label={EN.layout.community.sidebar.mobileTriggerLabel}
+    >
       <Menu size={20} />
     </SheetTrigger>
     <SheetContent className={classname.content} showClose={false}>

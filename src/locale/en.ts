@@ -24,6 +24,7 @@ export const EN = {
       },
       quickPost: {
         button: 'Post!',
+        buttonLabel: 'submit post button',
         description: (community: string) =>
           `Share your thoughts in ${community}`,
         placeholder: 'What are you thinking?',
@@ -45,6 +46,7 @@ export const EN = {
         createdByYou: 'You!',
         leave: 'Leave',
         members: 'Members',
+        mobileTriggerLabel: 'Toggle sidebar',
         subscribe: 'Subscribe',
         subscribeToggle: (subscribed: boolean) =>
           `You have successfully ${
