@@ -27,6 +27,7 @@ export const EN = {
         description: (community: string) =>
           `Share your thoughts in ${community}`,
         placeholder: 'What are you thinking?',
+        signIn: 'You need to be signed in to post!',
       },
     },
     signIn: {
@@ -36,16 +37,37 @@ export const EN = {
     },
   },
   layout: {
-    navBar: {
-      themeToggle: {
-        text: 'Toggle theme',
+    community: {
+      about: 'About',
+      sidebar: {
+        createdAt: 'Created at',
+        createdBy: 'Created by',
+        createdByYou: 'You!',
+        leave: 'Leave',
+        members: 'Members',
+        subscribe: 'Subscribe',
+        subscribeToggle: (subscribed: boolean) =>
+          `You have successfully ${
+            subscribed ? 'unsubscribed' : 'subscribed'
+          } this community.`,
+        subscribeToggleError: (subscribed: boolean) =>
+          `An error occurred while trying to ${
+            subscribed ? 'unsubscribe' : 'subscribe'
+          }.`,
       },
-      title: 'Koolala',
-      userMenu: {
-        labels: {
-          navigation: 'Go to...',
+    },
+    root: {
+      navbar: {
+        themeToggle: {
+          text: 'Toggle theme',
         },
-        signOut: 'Sign Out',
+        title: 'Koolala',
+        userMenu: {
+          labels: {
+            navigation: 'Go to...',
+          },
+          signOut: 'Sign Out',
+        },
       },
     },
   },

@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import SignInLink from '@/components/layout/Navbar/components/SignInLink';
-import { ThemeToggle } from '@/components/layout/Navbar/components/ThemeToggle';
-import UserMenu from '@/components/layout/Navbar/components/UserMenu';
 import { IMAGES_ROUTES, ROUTES } from '@/constants/routes';
 import { getAuthSession } from '@/lib/auth';
 import { cn } from '@/lib/classnames';
 import { EN } from '@/locale/en';
+
+import SignInLink from './components/SignInLink';
+import { ThemeToggle } from './components/ThemeToggle';
+import UserMenu from './components/UserMenu';
 
 const classname = {
   container: cn(
@@ -16,14 +17,14 @@ const classname = {
   header: cn(
     'fixed inset-x-0 top-0 z-10 h-fit border-b border-zinc-200 bg-foreground py-2',
   ),
-  hiddenText: cn('hidden text-sm font-medium text-background sm:block'),
-  logoLink: cn('flex items-center gap-2'),
+  hiddenText: cn('hidden text-lg font-bold text-background sm:block'),
+  logoLink: cn('flex items-center gap-6'),
   logoWrapper: cn('relative h-12 w-12 sm:h-10 sm:w-10'),
   signInContainer: cn('flex items-center gap-2'),
   signInLink: cn('disabled:pointer-events-none disabled:opacity-50'),
 };
 
-const Index = async () => {
+const Navbar = async () => {
   const session = await getAuthSession();
 
   return (
@@ -39,7 +40,9 @@ const Index = async () => {
               sizes="(min-width: 640) 2.5rem, 3rem"
             />
           </div>
-          <span className={classname.hiddenText}>{EN.layout.navBar.title}</span>
+          <span className={classname.hiddenText}>
+            {EN.layout.root.navbar.title}
+          </span>
         </Link>
         <div className={classname.signInContainer}>
           {!session?.user ? <SignInLink /> : <UserMenu user={session.user} />}
@@ -49,4 +52,4 @@ const Index = async () => {
     </header>
   );
 };
-export default Index;
+export default Navbar;

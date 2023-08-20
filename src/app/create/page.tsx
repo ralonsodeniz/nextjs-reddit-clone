@@ -5,6 +5,11 @@ import Create from '@/components/forms/Create';
 import { ROUTES } from '@/constants/routes';
 import { EN } from '@/locale/en';
 
+export const metadata = {
+  description: 'Create a new community',
+  title: 'Create a community',
+};
+
 const CreatePage = () => (
   <section className={classname.container}>
     <h1 className={classname.title}>

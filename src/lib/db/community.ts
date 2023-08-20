@@ -1,5 +1,6 @@
 import { PAGINATION_LIMIT } from '@/constants/db';
 import { db } from '@/lib/db/index';
+import { subscribeToCommunity } from '@/lib/db/subscription';
 
 export const checkIfCommunityExists = async (name: string) =>
   db.community.findUnique({
@@ -13,19 +14,15 @@ export const createCommunity = async (name: string, creatorId: string) => {
       name,
     },
   });
-  await db.subscription.create({
-    data: {
-      communityId: community.id,
-      userId: creatorId,
-    },
-  });
+  await subscribeToCommunity(community.id, creatorId);
 
   return community;
 };
 
-export const getCommunityInfo = async (name: string) =>
+export const getCommunityInfo = (name: string) =>
   db.community.findUnique({
     include: {
+      creator: { select: { name: true } },
       posts: {
         include: { Community: true, author: true, comments: true, votes: true },
         take: PAGINATION_LIMIT,

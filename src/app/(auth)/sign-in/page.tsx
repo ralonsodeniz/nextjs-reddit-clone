@@ -2,6 +2,11 @@ import SignIn from '@/components/SignIn';
 import { buttonVariants } from '@/components/ui/Button/styles';
 import { cn } from '@/lib/classnames';
 
+export const metadata = {
+  description: 'Sign in to Koolala',
+  title: 'Sign in',
+};
+
 const classname = {
   container: cn(
     'm-auto flex flex-col justify-center gap-4 space-y-2 text-center sm:w-[400px]',

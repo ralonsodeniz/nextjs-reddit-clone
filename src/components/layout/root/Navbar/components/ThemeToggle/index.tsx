@@ -23,7 +23,7 @@ export const ThemeToggle = () => {
       <Sun className={classname.light} />
       <Moon className={classname.dark} />
       <span className={classname.text}>
-        {EN.layout.navBar.themeToggle.text}
+        {EN.layout.root.navbar.themeToggle.text}
       </span>
     </Button>
   );

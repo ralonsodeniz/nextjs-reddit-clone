@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google';
 
-import Navbar from '@/components/layout/Navbar';
+import Navbar from '@/components/layout/root/Navbar';
 import Toaster from '@/components/ui/Toast';
 import { cn } from '@/lib/classnames';
 import { ThemeProvider } from '@/styles/ThemeProvider';
@@ -22,7 +22,7 @@ export const metadata = {
     { color: 'white', media: '(prefers-color-scheme: light)' },
     { color: 'black', media: '(prefers-color-scheme: dark)' },
   ],
-  title: 'Koolala',
+  title: { default: 'Koolala', template: '%s | Koolala' },
 };
 
 interface IRootLayout {
