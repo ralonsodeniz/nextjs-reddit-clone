@@ -7,6 +7,5 @@ export const classname = {
     'absolute inset-y-0 left-0 grid w-8 place-items-center text-sm text-muted-foreground',
   ),
   nameWrapper: cn('relative'),
-  serverSideDescription: (error: boolean) =>
-    cn('pb-2 text-xs', { 'pb-8': !error }),
+  serverSideDescription: cn('pb-2 text-xs'),
 };

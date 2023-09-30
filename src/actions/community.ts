@@ -1,22 +1,21 @@
 'use server';
 
-import { revalidatePath } from 'next/cache';
 import { ZodError } from 'zod';
 
 import { createCommunitySchema } from '@/components/forms/Create/schema';
-import { errors } from '@/components/forms/Create/ServerAction';
-import { ROUTES } from '@/constants/routes';
 import { getAuthSession } from '@/lib/auth';
 import { checkIfCommunityExists, createCommunity } from '@/lib/db/community';
 
-export const createCommunityAction = async (data: FormData) => {
-  try {
-    errors.clear();
+import type { IErrors } from '@/components/forms/Create/ServerAction';
 
+export const createCommunityAction = async (
+  prevState: IErrors,
+  data: FormData,
+) => {
+  try {
     const session = await getAuthSession();
     if (!session?.user) {
-      errors.set('server', 'Not Authenticated');
-      return;
+      return { errors: { server: 'Not Authenticated' } };
     }
 
     const dataObject = Object.fromEntries(data.entries());
@@ -24,20 +23,17 @@ export const createCommunityAction = async (data: FormData) => {
 
     const communityExists = await checkIfCommunityExists(parsedData.name);
     if (communityExists) {
-      errors.set('server', 'Community already exists');
-      return;
+      return { errors: { server: 'Community already exists' } };
     }
 
     await createCommunity(parsedData.name, session.user.id);
+    return { success: `${parsedData.name} created successfully` };
   } catch (error) {
     if (error instanceof ZodError) {
-      error.errors.forEach(error => {
-        errors.set(error.path.join(''), error.message);
-      });
-      return;
+      return { errors: { name: error.errors.map(error => error.message) } };
     }
-    errors.set('server', 'Something went wrong while creating the community');
-  } finally {
-    revalidatePath(ROUTES.create.href);
+    return {
+      errors: { server: 'Something went wrong while creating the community' },
+    };
   }
 };
