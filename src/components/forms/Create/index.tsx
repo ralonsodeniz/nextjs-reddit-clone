@@ -26,7 +26,7 @@ const Create = () => {
   const { toast } = useToast();
   const form = useForm<TCreateCommunity>({
     defaultValues: {
-      name: '',
+      communityName: '',
     },
     resolver: zodResolver(createCommunitySchema),
   });

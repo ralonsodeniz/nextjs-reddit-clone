@@ -38,7 +38,7 @@ const Name = ({ control }: { control: Control<TCreateCommunity> }) => (
         </div>
       </FormItem>
     )}
-    name="name"
+    name="communityName"
     control={control}
   />
 );

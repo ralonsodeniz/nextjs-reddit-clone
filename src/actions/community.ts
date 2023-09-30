@@ -21,13 +21,15 @@ export const createCommunityAction = async (
     const dataObject = Object.fromEntries(data.entries());
     const parsedData = createCommunitySchema.parse(dataObject);
 
-    const communityExists = await checkIfCommunityExists(parsedData.name);
+    const communityExists = await checkIfCommunityExists(
+      parsedData.communityName,
+    );
     if (communityExists) {
       return { errors: { server: 'Community already exists' } };
     }
 
-    await createCommunity(parsedData.name, session.user.id);
-    return { success: `${parsedData.name} created successfully` };
+    await createCommunity(parsedData.communityName, session.user.id);
+    return { success: `${parsedData.communityName} created successfully` };
   } catch (error) {
     if (error instanceof ZodError) {
       return { errors: { name: error.errors.map(error => error.message) } };

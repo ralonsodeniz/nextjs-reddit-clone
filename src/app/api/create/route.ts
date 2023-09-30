@@ -17,16 +17,16 @@ export const POST = async (req: NextRequest) => {
       );
 
     const body = await req.json();
-    const { name } = createCommunitySchema.parse(body);
+    const { communityName } = createCommunitySchema.parse(body);
 
-    const communityExists = await checkIfCommunityExists(name);
+    const communityExists = await checkIfCommunityExists(communityName);
     if (communityExists)
       return NextResponse.json(
         { message: 'Community already exists' },
         { status: 409 },
       );
 
-    const community = await createCommunity(name, session.user.id);
+    const community = await createCommunity(communityName, session.user.id);
     return NextResponse.json(community, { status: 201 });
   } catch (error) {
     if (error instanceof z.ZodError) {

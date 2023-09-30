@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const createCommunitySchema = z.object({
-  name: z
+  communityName: z
     .string()
     .trim()
     .min(3, 'Name must be at least 3 characters')
