@@ -22,13 +22,16 @@ export const EN = {
         },
         toastRedirect: 'Go!',
       },
-      quickPost: {
+      post: {
         button: 'Post!',
         buttonLabel: 'submit post button',
+        contentPlaceholder: 'What are you thinking?',
         description: (community: string) =>
           `Share your thoughts in ${community}`,
-        placeholder: 'What are you thinking?',
         signIn: 'You need to be signed in to post!',
+        success: 'Your post has been submitted!',
+        titlePlaceholder: 'Your post title',
+        zodError: 'There was an error with your post content',
       },
     },
     signIn: {

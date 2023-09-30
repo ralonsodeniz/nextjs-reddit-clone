@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import QuickPost from '@/components/forms/QuickPost';
+import Post from '@/components/forms/Post';
 import { getAuthSession } from '@/lib/auth';
 import { getCommunityInfo } from '@/lib/db/community';
 import { EN } from '@/locale/en';
@@ -27,7 +27,7 @@ const CommunityPage = async ({ params: { community } }: ICommunityPage) => {
 
   return (
     <>
-      <QuickPost session={session} />
+      <Post communityName={community} session={session} />
     </>
   );
 };

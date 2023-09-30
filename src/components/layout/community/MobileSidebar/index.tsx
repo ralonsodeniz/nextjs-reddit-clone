@@ -11,7 +11,7 @@ interface IMobileSidebar {
 
 const classname = {
   content: cn('w-[85vw]'),
-  trigger: cn('absolute right-[2rem] top-[75px] md:hidden'),
+  trigger: cn('fixed right-[0.4rem] top-[75px] md:hidden'),
 };
 
 const MobileSidebar = ({ communityName }: IMobileSidebar) => (
