@@ -1,9 +1,10 @@
 import Image from 'next/image';
 
-import GoogleAuth from '@/components/auth/Google';
 import { IMAGES_ROUTES } from '@/constants/routes';
 import { cn } from '@/lib/classnames';
 import { EN } from '@/locale/en';
+
+import GoogleAuth from './components/Google';
 
 const classname = {
   header: cn('text-2xl font-semibold tracking-tight'),

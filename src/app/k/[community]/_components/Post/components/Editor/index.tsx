@@ -8,11 +8,12 @@ import {
   useState,
 } from 'react';
 
-import { useEditor } from '@/components/forms/Post/components/Editor/hooks/useEditor';
-import { classname } from '@/components/forms/Post/components/styles';
 import { cn } from '@/lib/classnames';
 
-import type { IEditorActions } from '@/components/forms/Post';
+import { classname } from '../styles';
+import { useEditor } from './hooks/useEditor';
+
+import type { IEditorActions } from '@/app/k/[community]/_components/Post';
 import type EditorJS from '@editorjs/editorjs';
 
 const Editor = forwardRef<IEditorActions>((_, ref) => {

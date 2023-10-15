@@ -1,7 +1,7 @@
 import { API_ROUTES } from '@/constants/routes';
 import { enhancedFetch } from '@/http/utils/fetch';
 
-import type { TCreateCommunity } from '@/components/forms/Create/schema';
+import type { TCreateCommunity } from '@/app/create/_components/Create/schema';
 import type { Community } from '@prisma/client';
 
 export const postCommunity = async (values: TCreateCommunity) =>

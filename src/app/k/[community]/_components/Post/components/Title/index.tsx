@@ -1,7 +1,5 @@
 'use client';
 
-import { classname } from '@/components/forms/Post/components/styles';
-import { classname as formClassname } from '@/components/forms/styles';
 import {
   FormControl,
   FormField,
@@ -10,8 +8,11 @@ import {
 } from '@/components/ui/Form';
 import { Input } from '@/components/ui/Input';
 import { EN } from '@/locale/en';
+import { classname as formClassname } from '@/styles/forms/styles';
 
-import type { TPostForm } from '@/components/forms/Post/schema';
+import { classname } from '../styles';
+
+import type { TPostForm } from '../../schema';
 import type { Control } from 'react-hook-form';
 
 const Title = ({ control }: { control: Control<TPostForm> }) => {
@@ -23,7 +24,7 @@ const Title = ({ control }: { control: Control<TPostForm> }) => {
             <Input
               className={formClassname.input}
               disabled={formState.isSubmitting}
-              placeholder={EN.components.forms.post.titlePlaceholder}
+              placeholder={EN.pages.community.form.titlePlaceholder}
               {...field}
             />
           </FormControl>

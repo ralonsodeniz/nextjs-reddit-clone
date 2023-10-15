@@ -1,6 +1,7 @@
-import MobileSidebar from '@/components/layout/community/MobileSidebar';
-import Sidebar from '@/components/layout/community/Sidebar';
 import { cn } from '@/lib/classnames';
+
+import MobileSidebar from './_components/MobileSidebar';
+import Sidebar from './_components/Sidebar';
 
 import type { ReactNode } from 'react';
 

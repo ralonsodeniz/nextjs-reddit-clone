@@ -23,8 +23,8 @@ export const GoogleAuth = () => {
       await signIn('google', { callbackUrl: '/' });
     } catch (error) {
       toast({
-        description: EN.components.auth.error.description,
-        title: EN.components.auth.error.title,
+        description: EN.components.signIn.google.error.description,
+        title: EN.components.signIn.google.error.title,
         variant: 'destructive',
       });
     } finally {
@@ -35,7 +35,7 @@ export const GoogleAuth = () => {
   return (
     <Button size="sm" isLoading={isLoading} onClick={onSignIn}>
       {!isLoading && <Mail className={classname.mailIcon} />}
-      {EN.components.auth.google}
+      {EN.components.signIn.google.button}
     </Button>
   );
 };

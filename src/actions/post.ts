@@ -1,12 +1,12 @@
 'use server';
 
-import { postSubmitSchema } from '@/components/forms/Post/schema';
+import { postSubmitSchema } from '@/app/k/[community]/_components/Post/schema';
 import { getAuthSession } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { checkIfCommunityExists } from '@/lib/db/community';
 import { checkIfUserIsSubscribed } from '@/lib/db/subscription';
 
-import type { TPostSubmit } from '@/components/forms/Post/schema';
+import type { TPostSubmit } from '@/app/k/[community]/_components/Post/schema';
 
 export const createPostAction = async (data: TPostSubmit) => {
   const session = await getAuthSession();

@@ -1,9 +1,10 @@
 import Link from 'next/link';
 
 import { classname } from '@/app/create/styles';
-import Create from '@/components/forms/Create';
 import { ROUTES } from '@/constants/routes';
 import { EN } from '@/locale/en';
+
+import Create from './_components/Create';
 
 export const metadata = {
   description: 'Create a new community',

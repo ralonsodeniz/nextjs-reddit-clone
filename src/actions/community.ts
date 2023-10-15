@@ -2,11 +2,11 @@
 
 import { ZodError } from 'zod';
 
-import { createCommunitySchema } from '@/components/forms/Create/schema';
+import { createCommunitySchema } from '@/app/create/_components/Create/schema';
 import { getAuthSession } from '@/lib/auth';
 import { checkIfCommunityExists, createCommunity } from '@/lib/db/community';
 
-import type { IErrors } from '@/components/forms/Create/ServerAction';
+import type { IErrors } from '@/app/create/server-action/_components/ServerAction';
 
 export const createCommunityAction = async (
   prevState: IErrors,

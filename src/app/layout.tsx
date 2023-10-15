@@ -1,9 +1,10 @@
 import { Inter } from 'next/font/google';
 
-import Navbar from '@/components/layout/root/Navbar';
 import Toaster from '@/components/ui/Toast';
 import { cn } from '@/lib/classnames';
 import { ThemeProvider } from '@/styles/ThemeProvider';
+
+import Navbar from './_components/Navbar';
 
 import type { ReactNode } from 'react';
 

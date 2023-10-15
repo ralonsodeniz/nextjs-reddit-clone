@@ -1,6 +1,6 @@
 import { Menu } from 'lucide-react';
 
-import Sidebar from '@/components/layout/community/Sidebar';
+import Sidebar from '@/app/k/[community]/_components/Sidebar';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/classnames';
 import { EN } from '@/locale/en';

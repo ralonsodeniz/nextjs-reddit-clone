@@ -1,9 +1,10 @@
 import { notFound } from 'next/navigation';
 
-import Post from '@/components/forms/Post';
 import { getAuthSession } from '@/lib/auth';
 import { getCommunityInfo } from '@/lib/db/community';
 import { EN } from '@/locale/en';
+
+import Post from './_components/Post';
 
 export const generateMetadata = ({
   params,

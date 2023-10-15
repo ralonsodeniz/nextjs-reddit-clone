@@ -1,6 +1,7 @@
 import { classname } from '@/app/create/styles';
-import ServerActionForm from '@/components/forms/Create/ServerAction';
 import { EN } from '@/locale/en';
+
+import ServerActionForm from './_components/ServerAction';
 
 const CreatePage = () => {
   return (

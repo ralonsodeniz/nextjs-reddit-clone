@@ -6,35 +6,14 @@ export const EN = {
     userName: 'Mememan',
   },
   components: {
-    auth: {
-      error: {
-        description: 'There was an error while signing in with Google',
-        title: 'There was a problem',
-      },
-      google: 'Sign in with Google',
-    },
-    forms: {
-      create: {
-        button: 'Create',
-        name: {
-          description: 'The name of your community',
-          title: 'Name',
-        },
-        toastRedirect: 'Go!',
-      },
-      post: {
-        button: 'Post!',
-        buttonLabel: 'submit post button',
-        contentPlaceholder: 'What are you thinking?',
-        description: (community: string) =>
-          `Share your thoughts in ${community}`,
-        signIn: 'You need to be signed in to post!',
-        success: 'Your post has been submitted!',
-        titlePlaceholder: 'Your post title',
-        zodError: 'There was an error with your post content',
-      },
-    },
     signIn: {
+      google: {
+        button: 'Sign in with Google',
+        error: {
+          description: 'There was an error while signing in with Google',
+          title: 'There was a problem',
+        },
+      },
       header: 'Welcome to Koolala',
       licence:
         'By continuing you agree to our Terms of Service and Privacy Policy',
@@ -77,7 +56,28 @@ export const EN = {
     },
   },
   pages: {
+    community: {
+      form: {
+        button: 'Post!',
+        buttonLabel: 'submit post button',
+        contentPlaceholder: 'What are you thinking?',
+        description: (community: string) =>
+          `Share your thoughts in ${community}`,
+        signIn: 'You need to be signed in to post!',
+        success: 'Your post has been submitted!',
+        titlePlaceholder: 'Your post title',
+        zodError: 'There was an error with your post content',
+      },
+    },
     create: {
+      form: {
+        button: 'Create',
+        name: {
+          description: 'The name of your community',
+          title: 'Name',
+        },
+        toastRedirect: 'Go!',
+      },
       link: 'Server Action version',
       title: 'Create a community',
     },

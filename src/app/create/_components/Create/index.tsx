@@ -7,11 +7,6 @@ import {
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import CommunityLink from '@/components/forms/Create/components/CommunityLink';
-import Errors from '@/components/forms/Create/components/Errors';
-import Name from '@/components/forms/Create/components/Name';
-import { createCommunitySchema } from '@/components/forms/Create/schema';
-import { classname } from '@/components/forms/styles';
 import Button from '@/components/ui/Button';
 import { ICON_POSITIONS } from '@/components/ui/Button/constants';
 import { Form } from '@/components/ui/Form';
@@ -19,8 +14,14 @@ import { useToast } from '@/components/ui/Toast/hooks/use-toast';
 import { postCommunity } from '@/http/community';
 import { HTTPError } from '@/http/utils/error';
 import { EN } from '@/locale/en';
+import { classname } from '@/styles/forms/styles';
 
-import type { TCreateCommunity } from '@/components/forms/Create/schema';
+import CommunityLink from './components/CommunityLink';
+import Errors from './components/Errors';
+import Name from './components/Name';
+import { createCommunitySchema } from './schema';
+
+import type { TCreateCommunity } from '@/app/create/_components/Create/schema';
 
 const Create = () => {
   const { toast } = useToast();
@@ -77,7 +78,7 @@ const Create = () => {
           isLoading={isSubmitting}
           type="submit"
         >
-          {EN.components.forms.create.button}
+          {EN.pages.create.form.button}
         </Button>
       </form>
     </Form>

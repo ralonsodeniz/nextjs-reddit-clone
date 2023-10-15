@@ -16,7 +16,7 @@ const CommunityLink = ({
     href={ROUTES.community.href(communityName)}
     onClick={onClick}
   >
-    {EN.components.forms.create.toastRedirect}
+    {EN.pages.create.form.toastRedirect}
   </Link>
 );
 

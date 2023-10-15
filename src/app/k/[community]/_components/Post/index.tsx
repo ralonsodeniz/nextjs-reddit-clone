@@ -8,9 +8,6 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { createPostAction } from '@/actions/post';
-import Editor from '@/components/forms/Post/components/Editor';
-import Title from '@/components/forms/Post/components/Title';
-import { contentSchema, formSchema } from '@/components/forms/Post/schema';
 import Button from '@/components/ui/Button';
 import { Form, FormMessage } from '@/components/ui/Form';
 import { useToast } from '@/components/ui/Toast/hooks/use-toast';
@@ -18,7 +15,11 @@ import UserAvatar from '@/components/UserAvatar';
 import { cn } from '@/lib/classnames';
 import { EN } from '@/locale/en';
 
-import type { TPostForm, TPostSubmit } from '@/components/forms/Post/schema';
+import Editor from './components/Editor';
+import Title from './components/Title';
+import { contentSchema, formSchema } from './schema';
+
+import type { TPostForm, TPostSubmit } from './schema';
 import type { OutputData } from '@editorjs/editorjs';
 import type { Session } from 'next-auth';
 import type { ZodError, ZodIssue } from 'zod';
@@ -80,7 +81,7 @@ const Post = ({ communityName, session }: IPost) => {
         content: editorContent,
       });
       toast({
-        title: EN.components.forms.post.success,
+        title: EN.pages.community.form.success,
       });
     } catch (error) {
       if (error instanceof Error) {
@@ -97,7 +98,7 @@ const Post = ({ communityName, session }: IPost) => {
             description: zodErrorIssuesMessages.map((message: string) => (
               <p key={message}>{message}</p>
             )),
-            title: EN.components.forms.post.zodError,
+            title: EN.pages.community.form.zodError,
             variant: 'destructive',
           });
         } else {
@@ -117,7 +118,7 @@ const Post = ({ communityName, session }: IPost) => {
           <div className={classname.row}>
             <UserAvatar user={session?.user || { image: null, name: null }} />
             <p className={classname.formTitle}>
-              {EN.components.forms.post.description(pathname)}
+              {EN.pages.community.form.description(pathname)}
             </p>
           </div>
           <Form {...form}>
@@ -140,7 +141,7 @@ const Post = ({ communityName, session }: IPost) => {
             </form>
           </Form>
           <Button
-            aria-label={EN.components.forms.post.buttonLabel}
+            aria-label={EN.pages.community.form.buttonLabel}
             disabled={isSubmitting}
             form="post"
             type="submit"
@@ -155,7 +156,7 @@ const Post = ({ communityName, session }: IPost) => {
           </Button>
         </>
       ) : (
-        <p>{EN.components.forms.post.signIn}</p>
+        <p>{EN.pages.community.form.signIn}</p>
       )}
     </div>
   );

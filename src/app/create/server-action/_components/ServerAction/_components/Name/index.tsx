@@ -1,16 +1,16 @@
-import { classname } from '@/components/forms/Create/styles';
-import { classname as formClassname } from '@/components/forms/styles';
+import { classname } from '@/app/create/_components/Create/styles';
 import { Input } from '@/components/ui/Input';
 import { Label } from '@/components/ui/Label';
 import { EN } from '@/locale/en';
+import { classname as formClassname } from '@/styles/forms/styles';
 
 const Name = ({ error }: { error?: string[] }) => (
   <>
     <Label htmlFor="communityName" className={formClassname.label}>
-      {EN.components.forms.create.name.title}
+      {EN.pages.create.form.name.title}
     </Label>
     <p className={classname.message(!!error)}>
-      {error ? error.join(' ') : EN.components.forms.create.name.description}
+      {error ? error.join(' ') : EN.pages.create.form.name.description}
     </p>
     <div className={classname.nameWrapper}>
       <Input

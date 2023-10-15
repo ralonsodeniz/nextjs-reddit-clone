@@ -9,10 +9,11 @@ import { experimental_useFormState as useFormState } from 'react-dom';
 // https://nextjs.org/docs/app/building-your-application/data-fetching/forms-and-mutations#error-handling
 
 import { createCommunityAction } from '@/actions/community';
-import CommunityLink from '@/components/forms/Create/components/CommunityLink';
-import Name from '@/components/forms/Create/ServerAction/components/Name';
-import Submit from '@/components/forms/Create/ServerAction/components/Submit';
+import CommunityLink from '@/app/create/_components/Create/components/CommunityLink';
 import { useToast } from '@/components/ui/Toast/hooks/use-toast';
+
+import Name from './_components/Name';
+import Submit from './_components/Submit';
 
 export interface IErrors {
   errors: { name: string[]; server: string } | null;
@@ -27,7 +28,6 @@ const ServerActionForm = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    console.log('state', state);
     if (state.success) {
       toast({
         action: dismiss => (

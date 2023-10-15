@@ -1,7 +1,5 @@
 'use client';
 
-import { classname } from '@/components/forms/Create/styles';
-import { classname as formClassname } from '@/components/forms/styles';
 import {
   FormControl,
   FormField,
@@ -11,8 +9,11 @@ import {
 } from '@/components/ui/Form';
 import { Input } from '@/components/ui/Input';
 import { EN } from '@/locale/en';
+import { classname as formClassname } from '@/styles/forms/styles';
 
-import type { TCreateCommunity } from '@/components/forms/Create/schema';
+import { classname } from '../../styles';
+
+import type { TCreateCommunity } from '../../schema';
 import type { Control } from 'react-hook-form';
 
 const Name = ({ control }: { control: Control<TCreateCommunity> }) => (
@@ -20,10 +21,10 @@ const Name = ({ control }: { control: Control<TCreateCommunity> }) => (
     render={({ field, fieldState, formState }) => (
       <FormItem>
         <FormLabel className={formClassname.label}>
-          {EN.components.forms.create.name.title}
+          {EN.pages.create.form.name.title}
         </FormLabel>
         <FormMessage className={formClassname.message(!!fieldState.error)}>
-          {EN.components.forms.create.name.description}
+          {EN.pages.create.form.name.description}
         </FormMessage>
         <div className={classname.nameWrapper}>
           <FormControl>

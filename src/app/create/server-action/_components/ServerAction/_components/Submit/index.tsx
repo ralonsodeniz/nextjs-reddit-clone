@@ -2,10 +2,10 @@
 
 import { experimental_useFormStatus as useFormStatus } from 'react-dom';
 
-import { classname } from '@/components/forms/styles';
 import Button from '@/components/ui/Button';
 import { ICON_POSITIONS } from '@/components/ui/Button/constants';
 import { EN } from '@/locale/en';
+import { classname } from '@/styles/forms/styles';
 
 const Submit = () => {
   // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions#experimental-useformstatus
@@ -18,7 +18,7 @@ const Submit = () => {
       isLoading={pending}
       iconPosition={ICON_POSITIONS.RIGHT}
     >
-      {EN.components.forms.create.button}
+      {EN.pages.create.form.button}
     </Button>
   );
 };

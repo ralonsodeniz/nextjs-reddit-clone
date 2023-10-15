@@ -26,7 +26,7 @@ export const useEditor = (editorRef: MutableRefObject<EditorJS | null>) => {
         onReady: () => {
           editorRef.current = editor;
         },
-        placeholder: EN.components.forms.post.contentPlaceholder,
+        placeholder: EN.pages.community.form.contentPlaceholder,
         tools: {
           code: Code,
           embed: Embed,
