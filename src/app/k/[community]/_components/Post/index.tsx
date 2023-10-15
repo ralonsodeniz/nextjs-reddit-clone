@@ -24,14 +24,14 @@ import type { OutputData } from '@editorjs/editorjs';
 import type { Session } from 'next-auth';
 import type { ZodError, ZodIssue } from 'zod';
 
-interface IPost {
+type PostProps = {
   communityName: string;
   session: Session | null;
-}
+};
 
-export interface IEditorActions {
+export type EditorActions = {
   save: () => Promise<OutputData> | undefined;
-}
+};
 
 const classname = {
   container: cn(
@@ -45,9 +45,9 @@ const classname = {
   row: cn('mb-4 flex items-center gap-x-2'),
 };
 
-const Post = ({ communityName, session }: IPost) => {
+const Post = ({ communityName, session }: PostProps) => {
   const [editorErrors, setEditorErrors] = useState<ZodIssue[]>();
-  const editorActionsRef = useRef<IEditorActions>(null);
+  const editorActionsRef = useRef<EditorActions>(null);
   const pathname = usePathname();
   const { toast } = useToast();
   const form = useForm<TPostForm>({

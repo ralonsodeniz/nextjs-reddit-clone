@@ -21,9 +21,9 @@ import { navigationLinks } from './constants';
 
 import type { User } from 'next-auth';
 
-interface IUserMenu {
+type UserMenuProps = {
   user: Pick<User, 'name' | 'image' | 'email'>;
-}
+};
 
 const classname = {
   email: cn('w-[200px]  truncate text-sm text-popover-foreground'),
@@ -32,7 +32,7 @@ const classname = {
   signOut: cn('cursor-pointer text-sm font-semibold text-popover-foreground'),
 };
 
-const UserMenu = ({ user }: IUserMenu) => {
+const UserMenu = ({ user }: UserMenuProps) => {
   const router = useRouter();
   const handleSignOut = async () => {
     await signOut({ redirect: false });

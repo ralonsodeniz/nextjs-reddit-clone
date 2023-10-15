@@ -13,10 +13,10 @@ import { cn } from '@/lib/classnames';
 import { classname } from '../styles';
 import { useEditor } from './hooks/useEditor';
 
-import type { IEditorActions } from '@/app/k/[community]/_components/Post';
+import type { EditorActions } from '@/app/k/[community]/_components/Post';
 import type EditorJS from '@editorjs/editorjs';
 
-const Editor = forwardRef<IEditorActions>((_, ref) => {
+const Editor = forwardRef<EditorActions>((_, ref) => {
   const editorRef = useRef<EditorJS | null>(null);
 
   useImperativeHandle(

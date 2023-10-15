@@ -13,10 +13,10 @@ import { EN } from '@/locale/en';
 import Item from './components/Item';
 import ToggleSubscription from './components/ToggleSubscription';
 
-interface ISidebar {
+type SidebarProps = {
   communityName: string;
   isMobile?: boolean;
-}
+};
 
 const classname = {
   communityName: cn('py-3 font-semibold'),
@@ -28,7 +28,7 @@ const classname = {
     }),
 };
 
-const Sidebar = async ({ communityName, isMobile = false }: ISidebar) => {
+const Sidebar = async ({ communityName, isMobile = false }: SidebarProps) => {
   const communityInfo = await getCommunityInfo(communityName);
   if (!communityInfo) notFound();
   const session = await getAuthSession();

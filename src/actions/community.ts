@@ -6,10 +6,11 @@ import { createCommunitySchema } from '@/app/create/_components/Create/schema';
 import { getAuthSession } from '@/lib/auth';
 import { checkIfCommunityExists, createCommunity } from '@/lib/db/community';
 
-import type { IErrors } from '@/app/create/server-action/_components/ServerAction';
+import type { FormState } from '@/app/create/server-action/_components/ServerAction';
 
+// when the action is used together with the new useFormState hook, it will receive the previous state as the first argument and the form data as the second argument
 export const createCommunityAction = async (
-  prevState: IErrors,
+  prevState: FormState,
   data: FormData,
 ) => {
   try {

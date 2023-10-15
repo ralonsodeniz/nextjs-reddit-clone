@@ -56,9 +56,9 @@ type Action =
       type: ActionType['REMOVE_TOAST'];
     };
 
-interface State {
+type State = {
   toasts: ToasterToast[];
-}
+};
 
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
 

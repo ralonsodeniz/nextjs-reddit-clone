@@ -10,15 +10,14 @@ import type { TIconPosition } from '@/components/ui/Button/types';
 import type { VariantProps } from 'class-variance-authority';
 import type { ButtonHTMLAttributes } from 'react';
 
-export interface IButton
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
-  iconPosition?: TIconPosition;
-  isLoading?: boolean;
-}
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean;
+    iconPosition?: TIconPosition;
+    isLoading?: boolean;
+  };
 
-const Button = forwardRef<HTMLButtonElement, IButton>(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       asChild = false,

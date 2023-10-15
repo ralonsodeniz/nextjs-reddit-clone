@@ -15,13 +15,13 @@ export const generateMetadata = ({
   title: `${EN.common.communityPrefix}${params.community}`,
 });
 
-interface ICommunityPage {
+type CommunityPageProps = {
   params: {
     community: string;
   };
-}
+};
 
-const CommunityPage = async ({ params: { community } }: ICommunityPage) => {
+const CommunityPage = async ({ params: { community } }: CommunityPageProps) => {
   const session = await getAuthSession();
   const communityInfo = await getCommunityInfo(community);
   if (!communityInfo) notFound();

@@ -26,10 +26,10 @@ export const metadata = {
   title: { default: 'Koolala', template: '%s | Koolala' },
 };
 
-interface IRootLayout {
+type RootLayoutProps = {
   authModal: ReactNode;
   children: ReactNode;
-}
+};
 
 const classname = {
   body: cn(['flex min-h-screen flex-col antialiased', inter.className]),
@@ -37,7 +37,7 @@ const classname = {
   main: cn('container h-full max-w-7xl flex-1 pt-20'),
 };
 
-const RootLayout = ({ authModal, children }: IRootLayout) => {
+const RootLayout = ({ authModal, children }: RootLayoutProps) => {
   return (
     <html lang="en" className={classname.html} suppressHydrationWarning>
       <body className={classname.body}>

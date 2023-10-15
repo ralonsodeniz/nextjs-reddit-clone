@@ -6,11 +6,11 @@ import { EN } from '@/locale/en';
 import type { AvatarProps } from '@radix-ui/react-avatar';
 import type { User } from 'next-auth';
 
-interface IUserAvatar extends AvatarProps {
+type UserAvatarProps = AvatarProps & {
   user: Pick<User, 'name' | 'image'>;
-}
+};
 
-const UserAvatar = ({ className, user }: IUserAvatar) => {
+const UserAvatar = ({ className, user }: UserAvatarProps) => {
   const userInitials =
     user.name &&
     user.name

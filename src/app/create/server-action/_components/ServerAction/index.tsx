@@ -15,12 +15,12 @@ import { useToast } from '@/components/ui/Toast/hooks/use-toast';
 import Name from './_components/Name';
 import Submit from './_components/Submit';
 
-export interface IErrors {
+export type FormState = {
   errors: { name: string[]; server: string } | null;
   success: string | null;
-}
+};
 
-const initialState: IErrors = { errors: null, success: null };
+const initialState: FormState = { errors: null, success: null };
 const ServerActionForm = () => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   const [state, formAction] = useFormState(createCommunityAction, initialState);
